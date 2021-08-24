@@ -56,7 +56,7 @@ task ArmMove() {
 
 /* By potentiometer, 1000 is top of arm position, 2350 is the lower arm position */
 #define ARMTOP 1000
-#define ARMBOTTOM 2350
+#define ARMBOTTOM 2250
 
 /* ARM Speed by motor power */
 #define ARMFAST 100
