@@ -51,8 +51,8 @@ int chkButton (int cs, int btn) {
 #define JSDEADZONE 20
 
 typedef struct {
-	int Direction;  //The angluar direction the joystick is pointing, in radians
-	int Magnitude;  //The magnitude the joystick is pushed in that direction, 0 to 127
+	float Direction;  //The angluar direction the joystick is pointing, in radians
+	float Magnitude;  //The magnitude the joystick is pushed in that direction, 0 to 127
 } JoystickState;
 
 
