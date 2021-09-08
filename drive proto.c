@@ -17,14 +17,14 @@ task main()
 	while (true)	{
 		while (vexRT[joy1_x2]>20)   {
 		//forwards
-			motor(leftwheel)=-127;
-			motor(rightwheel)=-127;
+			motor(leftwheel)=127;
+			motor(rightwheel)=127;
 		}
 
 		while (vexRT[joy1_x2]<-20)		{
 		//backwards
-			motor(leftwheel)=127;
-			motor(rightwheel)=127;
+			motor(leftwheel)=-127;
+			motor(rightwheel)=-127;
 		}
 
 
@@ -37,14 +37,14 @@ task main()
 
 		while (vexRT[joy1_y1]<-20)   {
 		//turn left
-			motor(leftwheel)=127;
-			motor(rightwheel)=-127;
+			motor(leftwheel)=-127;
+			motor(rightwheel)=127;
 		}
 
 		while (vexRT[joy1_y1]>20)		{
 		//turn right
-			motor(leftwheel)=-127;
-			motor(rightwheel)=127;
+			motor(leftwheel)=127;
+			motor(rightwheel)=-127;
 
 		}
 	}
