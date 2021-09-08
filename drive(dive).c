@@ -10,8 +10,7 @@
 //             Code
 //                 For
 //                    The
-//                       Wheels
-
+//                       Wheelse2r3
 task main()
 {
 	while (true)	{
@@ -46,9 +45,9 @@ task main()
 
     while (true)        {
 
-        while(vexRT[Btn6U])
+        while(vexRT[Btn6U])    {
             motor (rightwheel)=127;
-
+				}
 
     }
 
