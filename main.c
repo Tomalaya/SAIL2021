@@ -1,5 +1,3 @@
-#pragma config(Sensor, dgtl2,  ,               sensorQuadEncoder)
-#pragma config(Motor,  port1,           e,             tmotorVexFlashlight, openLoop, reversed)
 #pragma config(Motor,  port2,           RightWheel,    tmotorServoContinuousRotation, openLoop)
 #pragma config(Motor,  port4,           ArmMotor,      tmotorServoContinuousRotation, openLoop)
 #pragma config(Motor,  port5,           HandServo,     tmotorServoStandard, openLoop)
