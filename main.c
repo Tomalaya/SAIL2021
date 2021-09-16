@@ -7,14 +7,16 @@
 int i = 0;
 #include <arm.c>
 #include <handServo.c>
-
-//Gripper Servo,
-task main() {
-	while(true) {
 		int leftSpeed = 0;
 		int rightSpeed = 0;
 		int left2Speed = 0;
 		int right2Speed = 0;
+
+		//Gripper Servo,
+task main() {
+	startTask(armStart);
+	while(true) {
+
 		//Null Zone Left Stick
 		if(vexRT[Ch3] < 20 && vexRT[Ch3] > -20) {
 			//If the Left Joystick is in the Middle, set motors to Zero
@@ -35,9 +37,7 @@ task main() {
 			//Set Motors speed to be Ch3
 			right2Speed = vexRT[Ch4];
 			left2Speed = vexRT[Ch4];
-		}
-		if(vexRT[Ch2] < 20 && vexRT[Ch2] > -20) {
-			startTask(armStart);
+
 		}
 		if(vexRT[Btn6U] == 1) {
 			startTask(handServoStart);
@@ -47,5 +47,5 @@ task main() {
 		//Set Motors to the values
 		motor[RightWheel]= 0 + rightSpeed + right2Speed;
 		motor[LeftWheel]= 0 + (-leftSpeed) - (-left2Speed);
-	}
+wait1Msec(20);	}
 }
