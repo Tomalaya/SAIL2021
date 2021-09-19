@@ -39,9 +39,6 @@ task main() {
 			right2Speed = vexRT[Ch4];
 			left2Speed = vexRT[Ch4];
 		}
-		if(vexRT[Ch2] < 20 && vexRT[Ch2] > -20) {
-			startTask(armStart);
-		}
 		if(vexRT[Btn6U] == 1) {
 			startTask(handServoStart);
 	  } else if(vexRT[Btn6D] == 1){
