@@ -17,5 +17,5 @@ task wristServoReverse() {
 		j++;
 		motor[WristServo] = 0 - j;
 	}
-	wait10Msec(20);
+	wait1Msec(20);
 }
