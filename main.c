@@ -8,11 +8,13 @@
 #include <arm.c>															// Include File arm.c
 #include <handServo.c>												// Include File handServo.c
 #include <wristServo.c>												// Include File wristServo.c
-int leftSpeed = 0;												// Initialize integer leftSpeed
-int rightSpeed = 0;												// Initialize integer rightSpeed
-int left2Speed = 0;												// Initialize integer left2Speed
-int right2Speed = 0;											// Initialize integer right2Speed
+#include <auto.c>															// Include File auto.c
+
 task main() {																	// Main Task
+	int leftSpeed = 0;													// Initialize integer leftSpeed
+	int rightSpeed = 0;													// Initialize integer rightSpeed
+	int left2Speed = 0;													// Initialize integer left2Speed
+	int right2Speed = 0;												// Initialize integer right2Speed
 	startTask(wristServoStart); 								// Start the wristServoStart Task
 	startTask(handServoStart);  								// Start the handServoStart Task
 	startTask(armStart);												// Start the armStart Task
@@ -31,6 +33,9 @@ task main() {																	// Main Task
 			right2Speed = vexRT[Ch4];								// Set right2Speed to the (-)value of the Left Joystick X Axis
 			left2Speed = vexRT[Ch4];								// Set left2Speed to the (-)value of the Left Joystick X Axis
 		}
+		if(vexRT[Btn8U] == 1) {										// If Button 8U is Down,
+			startTask(autoStart);										// Start Task autoStart
+	  }
 		motor[RightWheel]= 0 + rightSpeed + right2Speed; 		// Add rightSpeed and right2Speed to the Right Wheel Motor
 		motor[LeftWheel]= 0 + (-leftSpeed) - (-left2Speed);	// Add the negative of leftSpeed and add left2Speed to the Left Wheel Motor
 
