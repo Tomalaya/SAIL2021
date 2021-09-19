@@ -8,17 +8,15 @@
 #include <arm.c>															// Include File arm.c
 #include <handServo.c>												// Include File handServo.c
 #include <wristServo.c>												// Include File wristServo.c
-
+int leftSpeed = 0;												// Initialize integer leftSpeed
+int rightSpeed = 0;												// Initialize integer rightSpeed
+int left2Speed = 0;												// Initialize integer left2Speed
+int right2Speed = 0;											// Initialize integer right2Speed
 task main() {																	// Main Task
 	startTask(wristServoStart); 								// Start the wristServoStart Task
 	startTask(handServoStart);  								// Start the handServoStart Task
 	startTask(armStart);												// Start the armStart Task
 	while(true) {																// Start a while loop
-		int leftSpeed = 0;												// Initialize integer leftSpeed
-		int rightSpeed = 0;												// Initialize integer rightSpeed
-		int left2Speed = 0;												// Initialize integer left2Speed
-		int right2Speed = 0;											// Initialize integer right2Speed
-
 		if(vexRT[Ch3] < 20 && vexRT[Ch3] > -20) {	// Check if the Left Joystick Y Axis is in the middle
 			rightSpeed = 0;													// If the Left Joystick Y Axis is, set rightSpeed to 0
 			leftSpeed = 0;													// If the Left Joystick Y Axis is, set leftSpeed to 0
@@ -36,6 +34,6 @@ task main() {																	// Main Task
 		motor[RightWheel]= 0 + rightSpeed + right2Speed; 		// Add rightSpeed and right2Speed to the Right Wheel Motor
 		motor[LeftWheel]= 0 + (-leftSpeed) - (-left2Speed);	// Add the negative of leftSpeed and add left2Speed to the Left Wheel Motor
 
-		wait1Msec(20);														// Wait 200 Milliseconds
+		wait1Msec(20);														// Wait 20 Milliseconds
 	}
 }
