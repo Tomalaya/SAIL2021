@@ -7,7 +7,7 @@ task handServoStart() {						 // Start handServoStart task
 		  if(i >= 127) {							 // If i counts to higher than 127,
 			  i = 127;									 // Set i to 127
 		  }
-		} else if(vexRT[Btn6D] == 1] { // Else, if Button is down, run this:
+		} else if(vexRT[Btn6D] == 1) { // Else, if Button is down, run this:
 			i--;												 // Subtract 1 from i here
 			if(i <= -127) {							 // if i is less than 127, then
 			  i = -127;									 // Set i to -127
