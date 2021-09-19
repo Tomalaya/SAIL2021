@@ -9,8 +9,11 @@ The repository for the Sail Robotics 2021 Codebase!
 
 ## Features:
  
-  - Forward/Backward Driving
-  - Side-to-side Motion
+  - Forward/Backward Driving (Y Axis, Left Joystick)
+  - Side-to-side Motion (X Axis, Left Joystick)
+  - Arm Control (Y Axis, Right Joystick)
+  - Hand Control (Button 6U and 6D)
+  - Wrist Control (Button 5U and 5D)
 
 ### Planned Features:
   
