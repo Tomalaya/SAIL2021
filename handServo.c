@@ -18,5 +18,5 @@ task handServoReverse() {
 	  }
 		motor[HandServo] = 0 - i;
 	}
-	wait10Msec(20);
+	wait1Msec(20);
 }
