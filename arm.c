@@ -12,6 +12,6 @@ task armStart() {													// Start task armStart
 	  	armMotorSpeed = 0;									// Set armMotorSpeed to 0
 	  }
 		motor[ArmMotor] = 0 + armMotorSpeed;  // Set Arm Motor to 0 + armMotorSpeed
-		wait1Msec(20);												// Wait 200 Milliseconds
+		wait1Msec(20);												// Wait 20 Milliseconds
 	}
 }
