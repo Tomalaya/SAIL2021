@@ -15,5 +15,5 @@ task wristServoStart() {						 // Start handServoStart task
 	  }
 		motor[WristServo] = 0 + j;     // Add whatever i is to the motor
 	}
-	wait10Msec(20); 								 // wait 200 milliseconds
+	wait1Msec(20); 								 // wait 20 milliseconds
 }
