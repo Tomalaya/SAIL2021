@@ -36,6 +36,12 @@ task main() {																	// Main Task
 		if(vexRT[Btn8U] == 1) {										// If Button 8U is Down,
 			startTask(autoStart);										// Start Task autoStart
 	  }
+	  if(vexRT[Btn7L] == 1) {
+	  	right2Speed = -right2Speed;
+	    left2Speed = -left2Speed;
+	    rightSpeed = -rightSpeed;
+	    leftSpeed = -leftSpeed;
+		}
 		motor[RightWheel]= 0 + rightSpeed + right2Speed; 		// Add rightSpeed and right2Speed to the Right Wheel Motor
 		motor[LeftWheel]= 0 + (-leftSpeed) - (-left2Speed);	// Add the negative of leftSpeed and add left2Speed to the Left Wheel Motor
 
