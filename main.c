@@ -19,6 +19,7 @@ task main() {																	// Main Task
 	startTask(wristServoStart); 								// Start the wristServoStart Task
 	startTask(handServoStart);  								// Start the handServoStart Task
 	startTask(armStart);												// Start the armStart Task
+	startTask(autoStart);
 	while(true) {																// Start a while loop
 		if(vexRT[Ch3] < 20 && vexRT[Ch3] > -20) {	// Check if the Left Joystick Y Axis is in the middle
 			rightSpeed = 0;													// If the Left Joystick Y Axis is, set rightSpeed to 0
@@ -34,9 +35,6 @@ task main() {																	// Main Task
 			right2Speed = vexRT[Ch4];								// Set right2Speed to the (-)value of the Left Joystick X Axis
 			left2Speed = vexRT[Ch4];								// Set left2Speed to the (-)value of the Left Joystick X Axis
 		}
-		if(vexRT[Btn8U] == 1) {										// If Button 8U is Down,
-			startTask(autoStart);										// Start Task autoStart
-	  }
 	  if(vexRT[Btn8L] == 1) {
 	  reverse = -1;
     }
