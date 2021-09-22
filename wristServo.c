@@ -6,7 +6,7 @@ task wristServoStart() {						 		// Start handServoStart task
 
 			for(int k = 0; k < 127; k++) {		// Declare int k, if k is greater than -127, subtract 1 from k and,
 				j = k;													// Set j to k
-				wait10Msec(10);									// Wait 100 Milliseconds
+				wait1Msec(20);									// Wait 100 Milliseconds
 		  }
 		} else if(vexRT[Btn5D] == 1) { 			// Else, if Button is down, run this:
 
