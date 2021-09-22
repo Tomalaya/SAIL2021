@@ -37,7 +37,6 @@ task main() {																	// Main Task
 		if(vexRT[Btn8U] == 1) {										// If Button 8U is Down,
 			startTask(autoStart);										// Start Task autoStart
 	  }
-
 	  if(vexRT[Btn8L] == 1) {
 	  reverse = -1;
     }
