@@ -9,35 +9,24 @@ task autoStart()		{
 
 
 int i = 1;
+int j =1;
 
 
-while(true) 	{													// Loop forever
-	playSound(soundBlip);
+while(true)	{
 
-		motor[LeftWheel] = 120;							// Set Left Motor to 120
-	 motor[RightWheel] = 120;						// Set Right Motor to 120
-
-	 i ++;
-
-	}
-	while(getTimer(T2, 10) == 10) {							// Use a timer as a condition, 10 Seconds
-		motor[LeftWheel] = -120;						// Set Left Motor to -120
-		motor[RightWheel] = -120;						// Set Right Motor to -120
-	}
-	wait1Msec(20);												// Wait 20 Milliseconds
+        while(i < 100000)		{
+            motor(rightwheel)=120;
+            motor(leftwheel)=120;
+            i++;
+}
+						while(j<120000)      {
+            motor(rightwheel)=-120;
+            motor(leftwheel)=-120;
+            j++;
 }
 
 
-
 }
-
-
-
-}
-
-
-
-
 
 
 
