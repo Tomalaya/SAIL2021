@@ -10,6 +10,6 @@ task autoStart() {												// Start task armStart
 			motor[LeftWheel] = -120;						// Set Left Motor to -120
 			motor[RightWheel] = -120;						// Set Right Motor to -120
 	  }
-		wait1Msec(20);												// Wait 200 Milliseconds
+		wait1Msec(20);												// Wait 20 Milliseconds
 	}
 }
