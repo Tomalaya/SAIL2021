@@ -15,12 +15,12 @@ int j =1
 while(true)	{
 
         while(i < 100000)
-            rightwheel(127);
-            leftwheel(127);
+            motor(rightwheel)=127|;
+            motor(leftwheel)=127;
             i++;
 }       else()      {
-            rightwheel(-127);
-            leftwheel(-127);
+            motor(rightwheel)=-127;
+            motor(leftwheel)-127;
             j++;
 }
 
