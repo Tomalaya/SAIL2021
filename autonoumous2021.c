@@ -9,18 +9,19 @@ task autoStart()		{
 
 
 int i = 1;
-int j =1
+int j =1;
 
 
 while(true)	{
 
-        while(i < 100000)
-            motor(rightwheel)=127|;
-            motor(leftwheel)=127;
+        while(i < 100000)		{
+            motor(rightwheel)=120;
+            motor(leftwheel)=120;
             i++;
-}       else()      {
-            motor(rightwheel)=-127;
-            motor(leftwheel)-127;
+}
+			while(j<120000)      {
+            motor(rightwheel)=-120;
+            motor(leftwheel)=-120;
             j++;
 }
 
