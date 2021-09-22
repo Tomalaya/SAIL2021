@@ -19,7 +19,7 @@ while(true)	{
             motor(leftwheel)=120;
             i++;
 }
-						while(j<120000)      {
+	    while(j<120000)      {
             motor(rightwheel)=-120;
             motor(leftwheel)=-120;
             j++;
