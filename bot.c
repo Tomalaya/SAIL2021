@@ -6,17 +6,18 @@
 //Nonexistant arm code
 task arm() {
 	while(true)     {
-	    int btn5 = vexRT[Btn5U];
+	    int btnUp = vexRT[Btn5U];
+	    int btnDown = vexRT[Btn5D];
 
-	    if (btn5) {
-
-
-
+	    if (btnUp) {
+            motor(armmotor)=127
 	    }
+        if (btnDown) {
+            motor(armmotor)=-127
+        }
 
 
-
-	wait1Msec(20);
+	wait1Msec(20000);
 	}
 
 
