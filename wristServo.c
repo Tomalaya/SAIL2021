@@ -12,10 +12,10 @@ task wristServoStart() {						 		// Start handServoStart task
 
 			for(int k = 0; k > -127; k--) {		// Declare int k, if k is greater than -127, subtract 1 from k and,
 				j = k;													// Set j to k
-				wait10Msec(10);									// Wait 100 Milliseconds
+				wait1Msec(20);									// Wait 100 Milliseconds
 		  }
 	  }
 		motor[WristServo] = 0 + j;     			// Add whatever i is to the motor
 	}
-	wait10Msec(2); 								 				// wait 20 milliseconds
+	wait1Msec(20); 								 				// wait 20 milliseconds
 }
