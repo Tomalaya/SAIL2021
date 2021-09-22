@@ -10,7 +10,7 @@ task handServoStart() {						 			// Start handServoStart task
 		} else if(vexRT[Btn6D] == 1) { 			// Else, if Button is down, run this:
 			for(int k = 0; k > -127000; k--) {// Declare int k, if k is greater than -127, subtract 1 from k and,
 				i = k;													// Set j to k
-				wait10Msec(10);									// Wait 100 Milliseconds
+				wait1Msec(100);									// Wait 100 Milliseconds
 		  }
 	  }
 		motor[HandServo] = 0 + (i / 100);   // Add whatever i is to the motor
