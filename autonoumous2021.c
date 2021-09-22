@@ -9,6 +9,7 @@ task autoStart()		{
 
 
 int i = 1;
+int j =1
 
 
 while(true)	{
@@ -20,7 +21,8 @@ while(true)	{
 }       else()      {
             rightwheel(-127);
             leftwheel(-127);
-
+            j++;
+}
 
 
 }
