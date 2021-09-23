@@ -10,14 +10,14 @@ task autoStart() {												// Start task armStart
 				int j = 0;														// Declare Global Integer j
 				int end = 0;
 				playSound(soundBlip);									// Play a sound to indicate task is running
-			  while(i < 100000) {										// Loop until i hits 100,000
+
 					motor[LeftWheel] = 120;							// Set Left Motor to 120
 					motor[RightWheel] = 120;						// Set Right Motor to 120
 					i++;																// Increment i by 1
-			  }
+
 
 			  while(end++<20)   {
-              if (vexRT[btn7U], vexRT[btn7D], vexRT[btn7L], vexRT[btn7R], vexRT[btn8U], vexRT[btn8D], vexRT[btn8L], vexRT[btn8R], vexRT[btn6U], vexRT[btn6D], vexRT[btn5U], vexRT[btn5D]) {autonomous=false; break;}
+              if (vexRT[btn7U], vexRT[Btn7D]| vexRT[Btn7L]| vexRT[Btn7R]| vexRT[Btn8D]| vexRT[Btn8L]| vexRT[Btn8R]| vexRT[Btn6U]| vexRT[Btn6D]| vexRT[Btn5U]| vexRT[Btn5D]) {autonomous=false; break;}
 			  wait1Msec(100);
 
 			  }
