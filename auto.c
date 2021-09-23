@@ -1,5 +1,5 @@
 
-bool(autoStop) {
+bool autoStop() {
 
         return vexRT[btn7U], vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn8D] || vexRT[Btn8L] || vexRT[Btn8R] || vexRT[Btn6U] || vexRT[Btn6D] || vexRT[Btn5U] || vexRT[Btn5D];
 
