@@ -18,12 +18,11 @@ task main() {																	// Main Task
 	startTask(wristServoStart); 								// Start the wristServoStart Task
 	startTask(handServoStart);  								// Start the handServoStart Task
 	startTask(armStart);												// Start the armStart Task
-	
-
-	while(true) {
-	    int RT4 = vexRT[Ch4];
-        int RT3 = vexRT[Ch3];
-														// Start a while loop
+	int RT4 = vexRT[Ch4];
+	int RT3 = vexRT[Ch3];
+	int btn8 = vexRT[Btn8U];
+	int btn7 = vexRT[Btn7L];
+	while(true) {																// Start a while loop
 		if(RT3 < 20 && RT3 > -20) {								// Check if the Left Joystick Y Axis is in the middle
 			rightSpeed = 0;													// If the Left Joystick Y Axis is, set rightSpeed to 0
 			leftSpeed = 0;													// If the Left Joystick Y Axis is, set leftSpeed to 0
