@@ -16,6 +16,8 @@ task main() {																	// Main Task
 	int rightSpeed = 0;													// Initialize integer rightSpeed
 	int left2Speed = 0;													// Initialize integer left2Speed
 	int right2Speed = 0;												// Initialize integer right2Speed
+	int lastBtn8L = 0;
+	int btn8L = 0;
 	startTask(wristServoStart); 								// Start the wristServoStart Task
 	startTask(handServoStart);  								// Start the handServoStart Task
 	startTask(armStart);												// Start the armStart Task
@@ -35,11 +37,10 @@ task main() {																	// Main Task
 			right2Speed = vexRT[Ch4];								// Set right2Speed to the (-)value of the Left Joystick X Axis
 			left2Speed = vexRT[Ch4];								// Set left2Speed to the (-)value of the Left Joystick X Axis
 		}
-	  if(vexRT[Btn8L] == 1) {
-	  reverse = -1;
-    }
-    if(vexRT[Btn7L] == 1) {
-	  reverse = 1;
+		lastBtn8L = btn8L;
+		btn8L = vexRT[btn8L];
+	  if(btn8L && !lastBtn8L) {
+	  	reverse = -1 * reverse;
     }
     right2Speed = reverse*right2Speed;
 	  left2Speed = reverse*left2Speed;
