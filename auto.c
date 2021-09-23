@@ -1,10 +1,19 @@
 
+bool(autoStop) {
+
+        return vexRT[btn7U], vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn8D] || vexRT[Btn8L] || vexRT[Btn8R] || vexRT[Btn6U] || vexRT[Btn6D] || vexRT[Btn5U] || vexRT[Btn5D];
+
+}
+
+
 task autoStart() {												// Start task armStart
 	int lastBtn8U = 0;
 	int btn8U = 0;
+	bool(autonomous) = false;
 	while(true) {
 		lastBtn8U = btn8U;
 		btn8U = vexRT[btn8U];
+		autonomous = true;
 			if(btn8U && !lastBtn8U) {
 				int i = 0;														// Declare Global Integer i
 				int j = 0;														// Declare Global Integer j
@@ -17,7 +26,7 @@ task autoStart() {												// Start task armStart
 
 
 			  while(end++<20)   {
-              if (vexRT[btn7U], vexRT[Btn7D]| vexRT[Btn7L]| vexRT[Btn7R]| vexRT[Btn8D]| vexRT[Btn8L]| vexRT[Btn8R]| vexRT[Btn6U]| vexRT[Btn6D]| vexRT[Btn5U]| vexRT[Btn5D]) {autonomous=false; break;}
+              if (autoStop=false) {autonomous=false; break;}
 			  wait1Msec(100);
 
 			  }
