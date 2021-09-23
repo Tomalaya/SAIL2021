@@ -17,9 +17,9 @@ task autoStart() {												// Start task armStart
 			  }
 
 			  while(end++<20)   {
-              if (vexRT[btn]) {autonomous=false; break;}
+              if (vexRT[btn7U], vexRT[btn7D], vexRT[btn7L], vexRT[btn7R], vexRT[btn8U], vexRT[btn8D], vexRT[btn8L], vexRT[btn8R], vexRT[btn6U], vexRT[btn6D], vexRT[btn5U], vexRT[btn5D]) {autonomous=false; break;}
 			  wait1Msec(100);
-			  end++;
+
 			  }
 
 
