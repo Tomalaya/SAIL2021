@@ -27,10 +27,14 @@ task autoStart() {												// Start task armStart
 
 
 			 while(end++<20)   {
-                if (autoStop()) {autonomous=false; break;}
+                if (autoStop()) {autonomous = false; break;}
 			    wait1Msec(100);
 
 			 }
+             if (!autonomous){
+                break;
+             }
+
 
              motor[LeftWheel] = -120;							// Set Left Motor to 120
              motor[RightWheel] = -120;                           // Set Right Motor to 120

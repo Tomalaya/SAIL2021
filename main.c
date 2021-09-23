@@ -33,7 +33,7 @@ task main() {																	// Main Task
 			rightSpeed = -vexRT[Ch3];							  // Set rightSpeed to the (-)value of the Left Joystick Y Axis
 			leftSpeed = -vexRT[Ch3];								// Set leftSpeed to the (-)value of the Left Joystick Y Axis
 		}
-		if(RT4 < 20 && RT4 > -20) { /							// Check if the Left Joystick X Axis is in the middle
+		if(RT4 < 20 && RT4 > -20) { 							// Check if the Left Joystick X Axis is in the middle
 			right2Speed = 0;												// If the Left Joystick X Axis is, set right2Speed to 0
 			left2Speed = 0;													// If the Left Joystick X Axis is, set left2Speed to 0
 		} else {																	// Else, if the Left Joystick X Axis is NOT,
