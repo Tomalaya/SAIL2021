@@ -15,13 +15,13 @@ task autoStart() {												// Start task armStart
 		btn8U = vexRT[btn8U];
 		autonomous = true;
 			if(btn8U && !lastBtn8U) {
-																	// Declare Global Integer j
+
 				int end = 0;
 				playSound(soundBlip);									// Play a sound to indicate task is running
 
 					motor[LeftWheel] = 120;							// Set Left Motor to 120
 					motor[RightWheel] = 120;						// Set Right Motor to 120
-																			// Increment i by 1
+
 
 
 			  while(end++<20)   {
@@ -36,7 +36,7 @@ task autoStart() {												// Start task armStart
               			  wait1Msec(100);
 
                 motor[LeftWheel] = -120;							// Set Left Motor to 120
-                motor[RightWheel] = -120;
+                motor[RightWheel] = -120;                           // Set Right Motor to 120
 
 
 
