@@ -46,11 +46,11 @@ task main() {																	// Main Task
 	  	reverse = -1 * reverse;
     }
     right2Speed = reverse*right2Speed;
-	left2Speed = reverse*left2Speed;
-	rightSpeed = reverse*rightSpeed;
-	leftSpeed = reverse*leftSpeed;
-	motor[RightWheel]= 0 + rightSpeed + right2Speed; 		// Add rightSpeed and right2Speed to the Right Wheel Motor
-	motor[LeftWheel]= 0 + (-leftSpeed) - (-left2Speed);	// Add the negative of leftSpeed and add left2Speed to the Left Wheel Motor
+    left2Speed = reverse*left2Speed;
+    rightSpeed = reverse*rightSpeed;
+    leftSpeed = reverse*leftSpeed;
+    motor[RightWheel]= 0 + rightSpeed + right2Speed; 		// Add rightSpeed and right2Speed to the Right Wheel Motor
+    motor[LeftWheel]= 0 + (-leftSpeed) - (-left2Speed);	// Add the negative of leftSpeed and add left2Speed to the Left Wheel Motor
 
     wait1Msec(20);														// Wait 20 Milliseconds
 	}
