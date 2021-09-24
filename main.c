@@ -30,14 +30,14 @@ task main() {																	// Main Task
 		UPDATEBTN(Ch3);
 		UPDATEBTN(Ch4);
 
-		if(BTNPRESSED(Ch3)) {								// Check if the Left Joystick Y Axis is in the middle
+		if(BTNPRESSED(Ch4)) {								// Check if the Left Joystick Y Axis is in the middle
 			rightSpeed = 0;													// If the Left Joystick Y Axis is, set rightSpeed to 0
 			leftSpeed = 0;													// If the Left Joystick Y Axis is, set leftSpeed to 0
 		} else {																	// Else, if the Left Joystick Y Axis is NOT,
 			rightSpeed = -vexRT[Ch3];							  // Set rightSpeed to the (-)value of the Left Joystick Y Axis
 			leftSpeed = -vexRT[Ch3];								// Set leftSpeed to the (-)value of the Left Joystick Y Axis
 		}
-		if(BTNPRESSED(Ch4)) { 							// Check if the Left Joystick X Axis is in the middle
+		if(BTNPRESSED(Ch3)) { 							// Check if the Left Joystick X Axis is in the middle
 			right2Speed = 0;												// If the Left Joystick X Axis is, set right2Speed to 0
 			left2Speed = 0;													// If the Left Joystick X Axis is, set left2Speed to 0
 		} else {																	// Else, if the Left Joystick X Axis is NOT,
