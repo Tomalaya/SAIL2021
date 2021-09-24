@@ -7,14 +7,12 @@ bool autoStop() {
 
 
 task autoStart() {												// Start task armStart
-	int lastBtn8U = 0;
-	int btn8U = 0;
+	USEBTN(Btn8U);
 	bool autonomous = false;
 	while(true) {
-		lastBtn8U = btn8U;
-		btn8U = vexRT[btn8U];
+		UPDATEBTN(Btn8U);
 
-		if(btn8U && !lastBtn8U) {
+		if(BTNPRESSED(Btn8U)) {
 
             autonomous = true;
 
@@ -28,7 +26,7 @@ task autoStart() {												// Start task armStart
 
 			 while(end++<20)   {
                 if (autoStop()) {autonomous = false; break;}
-			    wait1Msec(100);
+			    wait1Msec(1000);
 
 			 }
              if (!autonomous){
