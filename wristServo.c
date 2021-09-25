@@ -9,17 +9,22 @@ task wristServoStart() {						 		// Start handServoStart task
 		UPDATEBTN(Btn5U);
 		UPDATEBTN(Btn5D);
 		UPDATEBTN(Btn8R);
-		if(BTNPRESSED(Btn5U)) { 			 			// If the Button is down, run this:
+		if(GETBTN(Btn5U)) { 			 		// If the Button is down, run this:
+			wait1Msec(25);
+			j+=10;
+			if(j >= 127) {
+				j = 127;
+			}
+		} else if(GETBTN(Btn5D)) { 		// Else, if Button is down, run this:
 
-		j = 127;
-
-		} else if(BTNPRESSED(Btn5D)) { 			// Else, if Button is down, run this:
-
-		j = -127;
-
+			wait1Msec(25);
+			j -= 10;
+			if(j <= -127) {
+				j = -127;
+			}
 	  } else if(BTNPRESSED(Btn8R)) {
 
-	  j = 0;
+	  	j = 0;
 
 		}
 		motor[WristServo] = j;     			// Add whatever j is to the motor

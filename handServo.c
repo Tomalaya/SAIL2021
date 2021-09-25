@@ -6,14 +6,21 @@ task handServoStart() {						 			// Start handServoStart task
 	while(true) {  												// Run forever
 		UPDATEBTN(Btn6U);
 		UPDATEBTN(Btn6D);
-		if(BTNPRESSED(Btn6U)) { 			 		// If the Button is down, run this:
+		if(GETBTN(Btn6U)) { 			 		// If the Button is down, run this:
+			wait1Msec(10);
+			i+=10;
+			if(i >= 127) {
+				i = 127;
+			}
+		} else if(GETBTN(Btn6D)) { 		// Else, if Button is down, run this:
 
-				i = 127;												// Set i to 127
-
-		} else if(BTNPRESSED(Btn6D)) { 		// Else, if Button is down, run this:
-				i = -127;													// Set i to 127
+			wait1Msec(10);
+			i -= 10;
+			if(i <= -127) {
+				i = -127;
+			}
 	  }
-		motor[HandServo] = i;   // Add whatever i is to the motor
+		motor[HandServo] = 0 + i;   // Add whatever i is to the motor
 	}
 	wait1Msec(20); 								 				// wait 20 milliseconds
 }
