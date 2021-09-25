@@ -1,7 +1,17 @@
 
 bool autoStop() {
 
-        return vexRT[Btn7U] || vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn8D] || vexRT[Btn8L] || vexRT[Btn8R] || vexRT[Btn6U] || vexRT[Btn6D] || vexRT[Btn5U] || vexRT[Btn5D];
+        return vexRT[Btn7U]
+        || vexRT[Btn7D]
+        || vexRT[Btn7L]
+        || vexRT[Btn7R]
+        || vexRT[Btn8D]
+        || vexRT[Btn8L]
+        || vexRT[Btn8R]
+        || vexRT[Btn6U]
+        || vexRT[Btn6D]
+        || vexRT[Btn5U]
+          || vexRT[Btn5D];
 
 }
 
@@ -21,9 +31,6 @@ task autoStart() {												// Start task armStart
 
 			motor[LeftWheel] = 120;							// Set Left Motor to 120
 			motor[RightWheel] = 120;						// Set Right Motor to 120
-
-
-
 			 while(end++<20)   {
                 if (autoStop()) {autonomous = false; break;}
 			    wait1Msec(1000);
