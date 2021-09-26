@@ -44,6 +44,7 @@ task autoStart() {												// Start task armStart
           	wait1Msec(100);
 		    	}
 
+
 	    }
         wait1Msec(20);	                                        //Wait 20 Milliseconds
     }
