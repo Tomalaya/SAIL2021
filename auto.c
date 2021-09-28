@@ -31,7 +31,7 @@ task autoStart() {												// Start task armStart
 
 			while(end++<20)   {
        	if (autoStop()) {autonomous = false; break;}
-			    wait1Msec(1000);
+			    wait1Msec(500);
 				}
         if (!autonomous){
         	break;
