@@ -18,7 +18,7 @@ bool autoStop() {
 
 task autoStart() {												// Start task armStart
 	USEBTN(Btn8U);
-
+	bool autonomous = false;
 	while(true) {
 		UPDATEBTN(Btn8U);
 
