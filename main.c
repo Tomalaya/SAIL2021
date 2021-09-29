@@ -53,8 +53,8 @@ task main()  {																	// Main Task
 		if(BTNPRESSED(Btn8L)) {
 			reverse = -1 * reverse;
 		}
-		right2Speed = reverse*right2Speed;
-		left2Speed = reverse*left2Speed;
+		//right2Speed = reverse*right2Speed;
+		//left2Speed = reverse*left2Speed;
 		rightSpeed = reverse*rightSpeed;
 		leftSpeed = reverse*leftSpeed;
 		if(!(autonomous)) {
