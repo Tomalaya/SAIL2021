@@ -13,6 +13,7 @@ bool autonomous = false;
 #include <wristServo.c>												// Include File wristServo.c
 #include <auto.c>															// Include File auto.c
 #include <lightpoleServo.c>
+#include <plow.c>
 
 
 task main()  {																	// Main Task
