@@ -47,7 +47,7 @@ task main()  {																	// Main Task
 		leftSpeed = reverse*leftSpeed;
 		if(!(autonomous)) {
 			if(lastRightSpeed != rightSpeed){
-				motor[RightWheel]= -rightSpeed;	 // Add rightSpeed and right2Speed to the Right Wheel Motor
+				motor[RightWheel]= rightSpeed;	 // Add rightSpeed and right2Speed to the Right Wheel Motor
 			}
 			if(lastLeftSpeed != leftSpeed){
 				motor[LeftWheel] = leftSpeed;  // Add the negative of leftSpeed and add left2Speed to the Left Wheel Motor

@@ -23,28 +23,39 @@ task autoStart() {												// Start task armStart
 		UPDATEBTN(Btn8U);
 
 		if(BTNPRESSED(Btn8U)) {
-      autonomous = true;
+            autonomous = true;
+        }
+        while(autonomous)   {
 			int end = 0;
 			playSound(soundBlip);									// Play a sound to indicate task is running
 			motor[LeftWheel] = 120;							// Set Left Motor to 120
 			motor[RightWheel] = 120;						// Set Right Motor to 120
 
 			while(end++<20)   {
-       	if (autoStop()) {autonomous = false; break;}
-			    wait1Msec(500);
-				}
-        if (!autonomous){
-        	break;
-        }
-        motor[LeftWheel] = -120;							// Set Left Motor to 120
-        motor[RightWheel] = -120;                           // Set Right Motor to 120
-			  end = 0;
-			  while(end++<20)   {
-        	if (autoStop()) {autonomous=false; break;}
-          	wait1Msec(100);
-		    	}
+       	        if (autoStop()) {autonomous = false;
+       	        motor[LeftWheel] = 0;
+                motor[RightWheel] = 0;
 
-
+       	        break;}
+			    wait1Msec(100);
+			}
+            if (!autonomous){
+        	    motor[LeftWheel] = 0;
+        	    motor[RightWheel] = 0;
+        	    break;
+            }
+            motor[LeftWheel] = -120;							// Set Left Motor to 120
+            motor[RightWheel] = -120;                           // Set Right Motor to 120
+			end = 0;
+			while(end++<20)   {
+        	    if (autoStop()) {autonomous=false;
+        	    motor[LeftWheel] = 0;
+                motor[RightWheel] = 0;
+        	    break;}
+          	        wait1Msec(100);
+		    }
+            motor[RightWheel] = 0;
+            motor[LeftWheel] = 0;
 	    }
         wait1Msec(20);	                                        //Wait 20 Milliseconds
     }
