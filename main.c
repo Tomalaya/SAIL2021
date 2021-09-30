@@ -40,9 +40,9 @@ task main()  {																	// Main Task
 			reverse = -1 * reverse;
 		}
 		leftSpeed = (abs(GETBTN(Ch3)) > 10 ? GETBTN(Ch3):0) +
-								(abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4):0);
+								(abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4)/2:0);
 		rightSpeed = (abs(GETBTN(Ch3)) > 10 ? GETBTN(Ch3):0) -
-								 (abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4):0);
+								 (abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4)/2:0);
 		rightSpeed = reverse*rightSpeed;
 		leftSpeed = reverse*leftSpeed;
 		if(!(autonomous)) {
