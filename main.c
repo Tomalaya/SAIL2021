@@ -19,8 +19,8 @@ task main()  {																	// Main Task
 	int reverse = 1;
 	int leftSpeed = 0;													// Initialize integer leftSpeed
 	int rightSpeed = 0;													// Initialize integer rightSpeed
-	int left2Speed = 0;													// Initialize integer left2Speed
-	int right2Speed = 0;												// Initialize integer right2Speed
+	int lastRightSpeed = 0;													// Initialize integer left2Speed
+	int lastLeftSpeed = 0;												// Initialize integer right2Speed
 
 	startTask(wristServoStart); 								// Start the wristServoStart Task
 	startTask(handServoStart);  								// Start the handServoStart Task
@@ -34,32 +34,24 @@ task main()  {																	// Main Task
 		UPDATEBTN(Btn8L);
 		UPDATEBTN(Ch3);
 		UPDATEBTN(Ch4);
-
-		if(BTNPRESSED(Ch4)) {								// Check if the Left Joystick Y Axis is in the middle
-			rightSpeed = 0;													// If the Left Joystick Y Axis is, set rightSpeed to 0
-			leftSpeed = 0;													// If the Left Joystick Y Axis is, set leftSpeed to 0
-			} else {																	// Else, if the Left Joystick Y Axis is NOT,
-			rightSpeed = -vexRT[Ch3];							  // Set rightSpeed to the (-)value of the Left Joystick Y Axis
-			leftSpeed = -vexRT[Ch3];								// Set leftSpeed to the (-)value of the Left Joystick Y Axis
-		}
-		if(BTNPRESSED(Ch3)) { 							// Check if the Left Joystick X Axis is in the middle
-			right2Speed = 0;												// If the Left Joystick X Axis is, set right2Speed to 0
-			left2Speed = 0;													// If the Left Joystick X Axis is, set left2Speed to 0
-			} else {																	// Else, if the Left Joystick X Axis is NOT,
-			right2Speed = vexRT[Ch4];								// Set right2Speed to the (-)value of the Left Joystick X Axis
-			left2Speed = vexRT[Ch4];								// Set left2Speed to the (-)value of the Left Joystick X Axis
-		}
-
+		lastRightSpeed = rightSpeed;
+		lastLeftSpeed = leftSpeed;
 		if(BTNPRESSED(Btn8L)) {
 			reverse = -1 * reverse;
 		}
-		//right2Speed = reverse*right2Speed;
-		//left2Speed = reverse*left2Speed;
+		leftSpeed = (abs(GETBTN(Ch3)) > 10 ? GETBTN(Ch3):0) +
+								(abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4):0);
+		rightSpeed = (abs(GETBTN(Ch3)) > 10 ? GETBTN(Ch3):0) -
+								 (abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4):0);
 		rightSpeed = reverse*rightSpeed;
 		leftSpeed = reverse*leftSpeed;
 		if(!(autonomous)) {
-			motor[RightWheel]= 0 + rightSpeed + right2Speed; 		// Add rightSpeed and right2Speed to the Right Wheel Motor
-			motor[LeftWheel]= 0 + (-leftSpeed) - (-left2Speed);	// Add the negative of leftSpeed and add left2Speed to the Left Wheel Motor
+			if(lastRightSpeed != rightSpeed){
+				motor[RightWheel]= -rightSpeed;	 // Add rightSpeed and right2Speed to the Right Wheel Motor
+			}
+			if(lastLeftSpeed != leftSpeed){
+				motor[LeftWheel] = leftSpeed;  // Add the negative of leftSpeed and add left2Speed to the Left Wheel Motor
+			}
 		}
 		wait1Msec(20);														// Wait 20 Milliseconds
 	}
