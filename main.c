@@ -28,6 +28,7 @@ task main()  {																	// Main Task
 	startTask(handServoStart);  								// Start the handServoStart Task
 	startTask(armStart);												// Start the armStart Task
 	startTask(lightServoStart);									// Start lightServoStart Task
+	startTask(plowMotorStart);
 	USEBTN(Btn8L);
 	USEBTN(Ch3);
 	USEBTN(Ch4);
