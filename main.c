@@ -1,6 +1,6 @@
 #pragma config(Motor,  port2,           RightWheel,    tmotorServoContinuousRotation, openLoop, reversed, driveLeft)
 #pragma config(Motor,  port3,           LightpoleServo, tmotorServoStandard, openLoop)
-#pragma config(Motor,  port4,           ArmMotor,      tmotorServoContinuousRotation, openLoop)
+#pragma config(Motor,  port4,           ArmMotor,      tmotorServoContinuousRotation, openLoop, reversed)
 #pragma config(Motor,  port5,           HandServo,     tmotorServoStandard, openLoop)
 #pragma config(Motor,  port7,           WristServo,    tmotorServoStandard, openLoop)
 #pragma config(Motor,  port9,           LeftWheel,     tmotorServoContinuousRotation, openLoop)
