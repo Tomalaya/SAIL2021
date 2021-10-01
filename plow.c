@@ -9,9 +9,9 @@ task plowMotorStart() {						 			// Start handServoStart task
 		UPDATEBTN(Btn8D);
 		lastI = i;
 		if(GETBTN(Btn8U)) { 			 		// If the Button is down, run this:
-			i+=20;
+			i+=10;
 		} else if(GETBTN(Btn8D)) { 		// Else, if Button is down, run this:
-			i -= 20;
+			i -= 10;
 	    }
 	    if(i < -127)i = -127; else if(i > 127) i = 127;
 	    if(lastI != i) {
