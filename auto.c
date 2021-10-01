@@ -1,6 +1,5 @@
 
 bool autoStop() {
-
         return vexRT[Btn7U] ||
         vexRT[Btn7D] ||
         vexRT[Btn7L] ||
@@ -12,7 +11,6 @@ bool autoStop() {
         vexRT[Btn6D] ||
         vexRT[Btn5U] ||
         vexRT[Btn5D];
-
 }
 
 task autoStart() {												// Start task armStart
@@ -33,7 +31,6 @@ task autoStart() {												// Start task armStart
        	        if (autoStop()) {autonomous = false;
        	        motor[LeftWheel] = 0;
                 motor[RightWheel] = 0;
-
        	        break;}
 			    wait1Msec(100);
 			}

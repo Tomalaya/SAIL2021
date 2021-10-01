@@ -1,17 +1,4 @@
 
-
-
-
-
-
 task plowMotorStart()    {
-
-
-
-
-
-
-
-
 
 }
