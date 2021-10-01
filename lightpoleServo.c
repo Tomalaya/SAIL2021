@@ -15,7 +15,11 @@ task lightServoStart() {						 			// Start handServoStart task
 			i+=10;
 		} else if(BTNPRESSED(Btn8R)) { 		// Else, if Button is down, run this:
 			i -= 10;
-	  }
+	    } else if(GETBTN(Btn7L)) {      //full reset
+	        i = -127;
+	    } else if(GETBTN(Btn7R)) {
+	        i +=2;
+	    }
 	  if(i < -127)i = -127; else if(i > 127) i = 127;
 	  if(lastI != i) {
 			motor[LightpoleServo] = i;   // Add whatever i is to the motor

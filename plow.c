@@ -15,9 +15,7 @@ task plowMotorStart() {						 			// Start handServoStart task
 	    }
 	    if(i < -127)i = -127; else if(i > 127) i = 127;
 	    if(lastI != i) {
-
 	            motor[PlowMotor] = i;   // Add whatever i is to the motor
-
 		}
 		wait1Msec(20);							// wait 20 milliseconds
 	}
