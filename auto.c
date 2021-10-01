@@ -1,9 +1,10 @@
 
 bool autoStop() {
-        return vexRT[Btn7U] ||
+        return
         vexRT[Btn7D] ||
         vexRT[Btn7L] ||
         vexRT[Btn7R] ||
+        vexRT[Btn8L] ||
         vexRT[Btn8D] ||
         vexRT[Btn8U] ||
         vexRT[Btn8R] ||
@@ -14,11 +15,11 @@ bool autoStop() {
 }
 
 task autoStart() {												// Start task armStart
-	USEBTN(Btn8L);
+	USEBTN(Btn7U);
 	while(true) {
-		UPDATEBTN(Btn8L);
+		UPDATEBTN(Btn7U);
 
-		if(BTNPRESSED(Btn8L)) {
+		if(BTNPRESSED(Btn7U)) {
             autonomous = true;
         }
         while(autonomous)   {
