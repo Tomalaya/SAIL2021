@@ -30,17 +30,17 @@ task main()  {																	// Main Task
 	startTask(armStart);												// Start the armStart Task
 	startTask(lightServoStart);									// Start lightServoStart Task
 	startTask(plowMotorStart);
-	USEBTN(Btn8L);
+	USEBTN(Btn8R);
 	USEBTN(Ch3);
 	USEBTN(Ch4);
 	startTask(autoStart);
 	while(true) {																// Start a while loop
-		UPDATEBTN(Btn8L);
+		UPDATEBTN(Btn8R);
 		UPDATEBTN(Ch3);
 		UPDATEBTN(Ch4);
 		lastRightSpeed = rightSpeed;
 		lastLeftSpeed = leftSpeed;
-		if(BTNPRESSED(Btn8L)) {
+		if(BTNPRESSED(Btn8R)) {
 			reverse = -1 * reverse;
 		}
 		leftSpeed = (abs(GETBTN(Ch3)) > 10 ? GETBTN(Ch3):0) +

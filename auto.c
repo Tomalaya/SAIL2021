@@ -5,7 +5,7 @@ bool autoStop() {
         vexRT[Btn7L] ||
         vexRT[Btn7R] ||
         vexRT[Btn8D] ||
-        vexRT[Btn8L] ||
+        vexRT[Btn8U] ||
         vexRT[Btn8R] ||
         vexRT[Btn6U] ||
         vexRT[Btn6D] ||
@@ -13,14 +13,12 @@ bool autoStop() {
         vexRT[Btn5D];
 }
 
-
 task autoStart() {												// Start task armStart
-	USEBTN(Btn8U);
-	bool autonomous = false;
+	USEBTN(Btn8L);
 	while(true) {
-		UPDATEBTN(Btn8U);
+		UPDATEBTN(Btn8L);
 
-		if(BTNPRESSED(Btn8U)) {
+		if(BTNPRESSED(Btn8L)) {
             autonomous = true;
         }
         while(autonomous)   {
@@ -29,7 +27,7 @@ task autoStart() {												// Start task armStart
 			motor[LeftWheel] = 120;							// Set Left Motor to 120
 			motor[RightWheel] = 120;						// Set Right Motor to 120
 
-			while(end++<20)   {
+			while(autonomous && end++<20)   {
        	        if (autoStop()) {autonomous = false;
        	        motor[LeftWheel] = 0;
                 motor[RightWheel] = 0;
@@ -44,7 +42,7 @@ task autoStart() {												// Start task armStart
             motor[LeftWheel] = -120;							// Set Left Motor to 120
             motor[RightWheel] = -120;                           // Set Right Motor to 120
 			end = 0;
-			while(end++<20)   {
+			while(autonomous && end++<20)   {
         	    if (autoStop()) {autonomous=false;
         	    motor[LeftWheel] = 0;
                 motor[RightWheel] = 0;
@@ -53,6 +51,7 @@ task autoStart() {												// Start task armStart
 		    }
             motor[RightWheel] = 0;
             motor[LeftWheel] = 0;
+            autonomous = false;
 	    }
         wait1Msec(20);	                                        //Wait 20 Milliseconds
     }
