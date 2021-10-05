@@ -14,7 +14,7 @@ bool autoStop() {
         vexRT[Btn5D];
 }
 
-task autoStart() {												// Start task armStart
+task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
 	USEBTN(Btn7U);
 	while(true) {
 		UPDATEBTN(Btn7U);
