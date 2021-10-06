@@ -4,7 +4,7 @@ bool autoStop() {
         vexRT[Btn7D] ||
         vexRT[Btn7L] ||
         vexRT[Btn7R] ||
-        vexRT[Btn8L] ||
+        vexRT[Btn7U] ||
         vexRT[Btn8D] ||
         vexRT[Btn8U] ||
         vexRT[Btn8R] ||
@@ -17,7 +17,7 @@ bool autoStop() {
 task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
 	USEBTN(Btn8L);
 	while(true) {
-		UPDATEBTN(Btn7U);
+		UPDATEBTN(Btn8L);
 
 		if(BTNPRESSED(Btn8L)) {
             autonomous = true;
