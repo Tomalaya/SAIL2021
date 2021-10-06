@@ -9,9 +9,9 @@ task plowMotorStart() {						 			// Start handServoStart task
 	UPDATEBTN(Btn8U);
 	UPDATEBTN(Btn8D);
 
-	if(GETBTN(Btn8U)) 	{								// If the Button is down, run this:
+	if(BTNPRESSED(Btn8U)) 	{								// If the Button is down, run this:
 		motor[PlowMotor] = 127;
-	} else if(GETBTN(Btn8D))    {                       // Else the Button is down, run this:
+	} else if(BTNPRESSED(Btn8D))    {                       // Else the Button is down, run this:
 	    motor[PlowMotor] = -127;
 	}
 	if(BTNRELEASED(Btn8D) || BTNRELEASED(Btn8U)){
