@@ -14,6 +14,9 @@ task plowMotorStart() {						 			// Start handServoStart task
 	} else if(GETBTN(Btn8D))    {                       // Else the Button is down, run this:
 	    motor[PlowMotor] = -127;
 	}
+	if(BTNRELEASED(Btn8D) || BTNRELEASED(Btn8U)){
+	    motor[PlowMotor] = 0;
+	}
 	wait1Msec(20);											// wait 20 milliseconds
 	}
 }
