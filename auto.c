@@ -15,11 +15,11 @@ bool autoStop() {
 }
 
 task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
-	USEBTN(Btn7U);
+	USEBTN(Btn8L);
 	while(true) {
 		UPDATEBTN(Btn7U);
 
-		if(BTNPRESSED(Btn7U)) {
+		if(BTNPRESSED(Btn8L)) {
             autonomous = true;
         }
         while(autonomous)   {

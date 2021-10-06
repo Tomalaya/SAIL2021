@@ -35,12 +35,12 @@ task main()  {																	// Main Task
 	USEBTN(Ch4);
 	startTask(autoStart);
 	while(true) {																// Start a while loop
-		UPDATEBTN(Btn7R);
+		UPDATEBTN(Btn8R);
 		UPDATEBTN(Ch3);
 		UPDATEBTN(Ch4);
 		lastRightSpeed = rightSpeed;
 		lastLeftSpeed = leftSpeed;
-		if(BTNPRESSED(Btn7R)) {
+		if(BTNPRESSED(Btn8R)) {
 			reverse = -1 * reverse;
 		}
 		leftSpeed = (abs(GETBTN(Ch3)) > 10 ? GETBTN(Ch3):0) +
