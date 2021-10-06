@@ -1,19 +1,19 @@
 task lightServoStart() {						 			// Start handServoStart task
 	int i = 0; 														// Initiate i here outside of while loop lexical scope
-	USEBTN(Btn8L);
-	USEBTN(Btn8R);
+	USEBTN(Btn7D);
+	USEBTN(Btn7U);
 	USEBTN(Btn7L);
 	USEBTN(Btn7R);
 	int lastI = 0;
 	while(true) {  												// Run forever
-		UPDATEBTN(Btn8L);
-		UPDATEBTN(Btn8R);
+		UPDATEBTN(Btn7D);
+		UPDATEBTN(Btn7U);
 		UPDATEBTN(Btn7L);
 		UPDATEBTN(Btn7R);
 		lastI = i;
-		if(BTNPRESSED(Btn8L)) { 			 		// If the Button is down, run this:
+		if(BTNPRESSED(Btn7U)) { 			 		// If the Button is down, run this:
 			i+=10;
-		} else if(BTNPRESSED(Btn8R)) { 		// Else, if Button is down, run this:
+		} else if(BTNPRESSED(Btn7D)) { 		// Else, if Button is down, run this:
 			i -= 10;
 	    } else if(GETBTN(Btn7L)) {      //full reset
 	        i = -127;
