@@ -33,5 +33,6 @@ task lightServoStart() {						 			// Start handServoStart task
 	        motor[LightpoleServo] = i;   // Add whatever i is to the motor
         }
 	    wait1Msec(20);							// wait 20 milliseconds
+
 	}
 }
