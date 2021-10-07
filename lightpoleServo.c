@@ -2,12 +2,14 @@
 int x = 0;
 task lightServoStart() {						 			// Start handServoStart task
 	int i = -67; 												// Initiate i here outside of while loop lexical scope
+	int g = 0;
 	USEBTN(Btn7D);
 	USEBTN(Btn7U);
 	USEBTN(Btn7L);
 	USEBTN(Btn7R);
 	int lastI = 0;
 	motor[LightpoleServo] = -67;
+	motor[GateServo] = -127;
 	while(true) {  												// Run forever
 	    UPDATEBTN(Btn7D);
 		UPDATEBTN(Btn7U);
@@ -15,13 +17,19 @@ task lightServoStart() {						 			// Start handServoStart task
 		UPDATEBTN(Btn7R);
 
 		lastI = i;
-		x = i;
+		x = g;
 		if(BTNPRESSED(Btn7U)) { 			 		// If the Button is down, run this:
 			i += 10;
 		} else if(BTNPRESSED(Btn7D)) { 		// Else, if Button is down, run this:
 			i -= 10;
 	    } else if(BTNPRESSED(Btn7L)) {
-
+            if(g)   {
+                motor[GateServo] = -127;
+                g = 0;
+            } else  {
+                motor[GateServo] = 127;
+                g = 1;
+            }
 	    } else if(BTNPRESSED(Btn7R)) {
 	        i += 2;
 	    }
