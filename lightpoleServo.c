@@ -1,8 +1,7 @@
 
 int x = 0;
 task lightServoStart() {						 			// Start handServoStart task
-	int i = 0; 														// Initiate i here outside of while loop lexical scope
-    motor[LightpoleServo] = -67;
+	int i = 0; 												// Initiate i here outside of while loop lexical scope
 	USEBTN(Btn7D);
 	USEBTN(Btn7U);
 	USEBTN(Btn7L);
@@ -12,6 +11,7 @@ task lightServoStart() {						 			// Start handServoStart task
 	    UPDATEBTN(Btn7D);
 		UPDATEBTN(Btn7U);
 		UPDATEBTN(Btn7L);
+
 		UPDATEBTN(Btn7R);
 		lastI = i;
 		x = i;
