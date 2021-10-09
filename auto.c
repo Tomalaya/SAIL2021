@@ -28,28 +28,52 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
 			motor[LeftWheel] = 120;							// Set Left Motor to 120
 			motor[RightWheel] = 120;						// Set Right Motor to 120
 
-			while(autonomous && end++<20)   {
-       	        if (autoStop()) {autonomous = false;
-       	        motor[LeftWheel] = 0;
+            while(autonomous && end++<19)   {
+                if (autoStop()) {
+                    autonomous=false;
+                    motor[LeftWheel] = 0;
+                    motor[RightWheel] = 0;
+                    break;
+                }
+                wait1Msec(100);
+            }
+            end = 0;
+            if (!autonomous){
+                motor[LeftWheel] = 0;
                 motor[RightWheel] = 0;
-       	        break;}
-			    wait1Msec(100);
-			}
+                break;
+            }
+            motor[LeftWheel] = -120;
+            motor[RightWheel] = 127;
+
+            while(autonomous && end++<25)   {
+                if (autoStop()) {
+                    autonomous=false;
+                    motor[LeftWheel] = 0;
+                    motor[RightWheel] = 0;
+                    break;
+                }
+                wait1Msec(100);
+            }
             if (!autonomous){
         	    motor[LeftWheel] = 0;
         	    motor[RightWheel] = 0;
         	    break;
             }
-            motor[LeftWheel] = -120;							// Set Left Motor to 120
-            motor[RightWheel] = -120;                           // Set Right Motor to 120
+            motor[LeftWheel] = 120;							// Set Left Motor to 120
+            motor[RightWheel] = 120;                           // Set Right Motor to 120
 			end = 0;
-			while(autonomous && end++<20)   {
-        	    if (autoStop()) {autonomous=false;
+
+			while(autonomous && end++<18)   {
+        	    if (autoStop()) {
+        	    autonomous=false;
         	    motor[LeftWheel] = 0;
                 motor[RightWheel] = 0;
-        	    break;}
-          	        wait1Msec(100);
+        	    break;
+        	    }
+          	    wait1Msec(100);
 		    }
+		    end = 0;
             motor[RightWheel] = 0;
             motor[LeftWheel] = 0;
             autonomous = false;
