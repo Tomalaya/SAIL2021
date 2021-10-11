@@ -46,7 +46,7 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
             motor[LeftWheel] = -120;
             motor[RightWheel] = 127;
 
-            while(autonomous && end++<8)   {
+            while(autonomous && end++<7)   {
                 if (autoStop()) {
                     autonomous=false;
                     motor[LeftWheel] = 0;
