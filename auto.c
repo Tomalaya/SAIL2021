@@ -53,13 +53,19 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
                 }
                 wait1Msec(100);
             }
-            autonomous = false;
+            motor[PlowMotor] = -127;
+            while(autonomous && end++<5)
+                if(autoStop())  {
+                autonomous=false;
+                motor[LeftWheel] = 0;
+                motor[RightWheel] = 0;
+                }
             if (!autonomous){
         	    motor[LeftWheel] = 0;
         	    motor[RightWheel] = 0;
         	    break;
             }
-
+            autonomous = false;
 			end = 0;
             motor[LeftWheel] = -127;
             motor[RightWheel] = -127;
