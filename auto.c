@@ -31,13 +31,25 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
 			    playSound(soundBlip);									// Play a sound to indicate task is running
 			    motor[LeftWheel] = 127;
 			    motor[RightWheel] = 127;
-                while(autonomous && end++<22)   {
+                while(autonomous && end++<22) {
                     if (autoStop()) {
                         autonomous=false;
                         motor[LeftWheel] = 0;
                         motor[RightWheel] = 0;
                         break;
                     }
+        }
+        while(autonomous)   {
+			int end = 0;
+			playSound(soundBlip);									// Play a sound to indicate task is running
+			motor[LeftWheel] = 127;			motor[RightWheel] = 127;
+            while(autonomous && end++<22)   {
+                if (autoStop()) {
+                    autonomous=false;
+                    motor[LeftWheel] = 0;
+                    motor[RightWheel] = 0;
+                    break;
+                }
                 wait1Msec(100);
                 }
                 end = 0;
@@ -91,6 +103,71 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
         wait1Msec(20);	                                        //Wait 20 Milliseconds
 
     }
+    while(autonomous && Auto2)   {
+    	int end2 = 0;
+    	motor[LeftWheel] = 127;
+    	motor[RightWheel] = 127;
+        while(autonomous && end2++<22)   {
+            if (autoStop()) {
+                autonomous=false;
+                motor[LeftWheel] = 0;
+                motor[RightWheel] = 0;
+                break;
+            }
+            wait1Msec(100);
+        }
+        end2 = 0;
+        if (!autonomous){
+            motor[LeftWheel] = 0;
+            motor[RightWheel] = 0;
+            break;
+        }
+        motor[LeftWheel] = 127;
+        motor[RightWheel] = -127;
+        while(autonomous && end2++<6)   {
+            if (autoStop()) {
+                autonomous=false;
+                motor[LeftWheel] = 0;
+                motor[RightWheel] = 0;
+                break;
+            }
+            wait1Msec(100);
+        }
+        motor[LeftWheel] = 0;
+        motor[RightWheel] = 0;
+    /*
+                motor[PlowMotor] = -127;
+                while(autonomous && end2++<20)   {
+                    if(autoStop())  {
+                        autonomous=false;
+                        motor[LeftWheel] = 0;
+                        motor[RightWheel] = 0;
+                    }
+                    wait1Msec(100);
+                }
+    */ 
 
+        motor[PlowMotor] = 0;
+    	end2 = 0;
+
+        motor[LeftWheel] = 80;
+        motor[RightWheel] = 127;
+    	while(autonomous && end2++<90)   {
+            if (autoStop()) {
+                autonomous=false;
+            	motor[LeftWheel] = 0;
+                motor[RightWheel] = 0;
+            	break;
+            }
+            wait1Msec(100);
+    	}
+    	end2 = 0;
+        motor[RightWheel] = 0;
+        motor[LeftWheel] = 0;
+        autonomous = false;
+        Auto2 = false;
     }
+    wait1Msec(20);
+
+
 }
