@@ -31,11 +31,12 @@ task main()  {																	// Main Task
 	startTask(armStart);												// Start the armStart Task
 	startTask(lightServoStart);									// Start lightServoStart Task
 	startTask(plowMotorStart);
+	startTask(autoStart);
 	USEBTN(Btn8R);
 	USEBTN(Ch3);
 	USEBTN(Ch4);
-	startTask(autoStart);
-	while(true) {																// Start a while loop
+
+	while(true) {															// Start a while loop
 		UPDATEBTN(Btn8R);
 		UPDATEBTN(Ch3);
 		UPDATEBTN(Ch4);
@@ -44,18 +45,16 @@ task main()  {																	// Main Task
 		if(BTNPRESSED(Btn8R)) {
 			reverse = -1 * reverse;
 		}
-		leftSpeed = (abs(GETBTN(Ch3)) > 10 ? GETBTN(Ch3):0) +
+		leftSpeed = (abs(GETBTN(Ch3)) > 10 ? (GETBTN(Ch3)*reverse):0) +
 								(abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4)/2:0);
-		rightSpeed = (abs(GETBTN(Ch3)) > 10 ? GETBTN(Ch3):0) -
+		rightSpeed = (abs(GETBTN(Ch3)) > 10 ? (GETBTN(Ch3)*reverse):0) -
 								 (abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4)/2:0);
-		rightSpeed = reverse*rightSpeed;
-		leftSpeed = reverse*leftSpeed;
 		if(!(autonomous)) {
 			if(lastRightSpeed != rightSpeed){
-				motor[RightWheel]= rightSpeed;	 // Add rightSpeed and right2Speed to the Right Wheel Motor
+				motor[RightWheel]= rightSpeed;
 			}
 			if(lastLeftSpeed != leftSpeed){
-				motor[LeftWheel] = leftSpeed;  // Add the negative of leftSpeed and add left2Speed to the Left Wheel Motor
+				motor[LeftWheel] = leftSpeed;
 			}
 		}
 		wait1Msec(20);														// Wait 20 Milliseconds

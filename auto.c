@@ -25,10 +25,9 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
         while(autonomous)   {
 			int end = 0;
 			playSound(soundBlip);									// Play a sound to indicate task is running
-			motor[LeftWheel] = 120;							// Set Left Motor to 120
-			motor[RightWheel] = 120;						// Set Right Motor to 120
-
-            while(autonomous && end++<19)   {
+			motor[LeftWheel] = -127;
+			motor[RightWheel] = -127;
+            while(autonomous && end++<22)   {
                 if (autoStop()) {
                     autonomous=false;
                     motor[LeftWheel] = 0;
@@ -43,10 +42,9 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
                 motor[RightWheel] = 0;
                 break;
             }
-            motor[LeftWheel] = -120;
+            motor[LeftWheel] = -127;
             motor[RightWheel] = 127;
-
-            while(autonomous && end++<7)   {
+            while(autonomous && end++<6)   {
                 if (autoStop()) {
                     autonomous=false;
                     motor[LeftWheel] = 0;
@@ -55,15 +53,16 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
                 }
                 wait1Msec(100);
             }
+            autonomous = false;
             if (!autonomous){
         	    motor[LeftWheel] = 0;
         	    motor[RightWheel] = 0;
         	    break;
             }
-            motor[LeftWheel] = 120;							// Set Left Motor to 120
-            motor[RightWheel] = 120;                           // Set Right Motor to 120
-			end = 0;
 
+			end = 0;
+            motor[LeftWheel] = -127;
+            motor[RightWheel] = -127;
 			while(autonomous && end++<18)   {
         	    if (autoStop()) {
         	    autonomous=false;
