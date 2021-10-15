@@ -26,23 +26,11 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
             if(BTNPRESSED(Btn5U))   {Auto1 = true;}
             else if(BTNPRESSED(Btn5D))  {Auto2 = true;}
 
-            while(Auto1)   {
-			    int end = 0;
-			    playSound(soundBlip);									// Play a sound to indicate task is running
-			    motor[LeftWheel] = 127;
-			    motor[RightWheel] = 127;
-                while(autonomous && end++<22) {
-                    if (autoStop()) {
-                        autonomous=false;
-                        motor[LeftWheel] = 0;
-                        motor[RightWheel] = 0;
-                        break;
-                    }
-        }
-        while(autonomous)   {
+
+        while(autonomous && Auto1)   {
 			int end = 0;
-			playSound(soundBlip);									// Play a sound to indicate task is running
-			motor[LeftWheel] = 127;			motor[RightWheel] = 127;
+			motor[LeftWheel] = 127;
+			motor[RightWheel] = 127;
             while(autonomous && end++<22)   {
                 if (autoStop()) {
                     autonomous=false;
@@ -102,7 +90,7 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
 	        }
         wait1Msec(20);	                                        //Wait 20 Milliseconds
 
-    }
+
     while(autonomous && Auto2)   {
     	int end2 = 0;
     	motor[LeftWheel] = 127;
@@ -135,17 +123,7 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
         }
         motor[LeftWheel] = 0;
         motor[RightWheel] = 0;
-    /*
-                motor[PlowMotor] = -127;
-                while(autonomous && end2++<20)   {
-                    if(autoStop())  {
-                        autonomous=false;
-                        motor[LeftWheel] = 0;
-                        motor[RightWheel] = 0;
-                    }
-                    wait1Msec(100);
-                }
-    */ 
+
 
         motor[PlowMotor] = 0;
     	end2 = 0;
@@ -170,4 +148,6 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
     wait1Msec(20);
 
 
+    }
+    }
 }

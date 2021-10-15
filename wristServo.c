@@ -8,6 +8,7 @@ task wristServoStart() {						 			// Start wristServoStart task
 		UPDATEBTN(Btn5U);
 		UPDATEBTN(Btn5D);
 		lastI = i;
+		if(!(autonomous))	{
 		if(GETBTN(Btn5U)) { 			 		// If the Button is down, run this:
 			i+=10;
 		} else if(GETBTN(Btn5D)) { 		// Else, if Button is down, run this:
@@ -17,6 +18,7 @@ task wristServoStart() {						 			// Start wristServoStart task
 	    if(lastI != i) {
 			motor[WristServo] = i;   // Add whatever i is to the motor
 	    }
+	  }
 		wait1Msec(20);							// wait 20 milliseconds
 	}
 }

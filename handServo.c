@@ -13,10 +13,12 @@ task handServoStart() {						 			// Start handServoStart task
 		} else if(GETBTN(Btn6D)) { 		// Else, if Button is down, run this:
 			i -= 10;
 	  }
+	  if(!(autonomous))   {
 	  if(i < -127)i = -127; else if(i > 127) i = 127;
 	  if(lastI != i) {
 			motor[HandServo] = i;   // Add whatever i is to the motor
 		}
 		wait1Msec(20);							// wait 20 milliseconds
+	}
 	}
 }

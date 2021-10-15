@@ -33,11 +33,12 @@ task lightServoStart() {						 			// Start handServoStart task
 	    } else if(BTNPRESSED(Btn7R)) {
 	        i += 2;
 	    }
+	    if(!(autonomous))   {
 	    if(i < -67) { i = -67; } else if(i > 103) { i = 103;}
 	    if(lastI != i) {
 	        motor[LightpoleServo] = i;   // Add whatever i is to the motor
         }
 	    wait1Msec(20);							// wait 20 milliseconds
-
+        }
 	}
 }
