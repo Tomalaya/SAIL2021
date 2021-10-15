@@ -20,7 +20,7 @@ bool Auto2 = false;
 #include <plow.c>
 
 
-  {																	// Main Task
+task main()  {																	// Main Task
 
 	int reverse = 1;
 	int leftSpeed = 0;													// Initialize integer leftSpeed

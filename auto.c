@@ -11,7 +11,8 @@ bool autoStop() {
         vexRT[Btn6U] ||
         vexRT[Btn6D] ;
 }
-
+bool Auto1 = false;
+bool Auto2 = false;
 task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
 	USEBTN(Btn8L);
 	USEBTN(Btn5U);
