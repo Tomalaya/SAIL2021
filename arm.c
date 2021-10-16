@@ -1,19 +1,19 @@
-
-int armCh2 = 0;														// Declare Global Integer armCh2 and set it to 0
-task armStart() {													// Start task armStart
-	int armMotorSpeed = 0;									// Declare Local Integer armMotorSpeed and set it to 0
-	while(true) {														// Loop forever
-		armCh2 = vexRT[Ch2];									// set armCh2 to the Y Axis of the Right Joystick
-
-		if(armCh2 > 20 || armCh2 < -20) {			// If armCh2 is greater than 20 or armCh2 is less than -20
-			armMotorSpeed = armCh2;							// Set armMotorSpeed to armCh2
+task armStart() {
+	USEBTN(Ch2);
+	int armMotorSpeed = 0;
+	int lastarmMotorSpeed = 0;
+	while(true) {
+		UPDATEBTN(Ch2);
+		lastarmMotorSpeed = armMotorSpeed;
+		if((abs(GETBTN(Ch2)) > 10)) {
+			armMotorSpeed = GETBTN(Ch2);
 		}
-		else {																// Else,
-			armMotorSpeed = 0;									// Set armMotorSpeed to 0
+		else {
+			armMotorSpeed = 0;
 		}
-		if(!(autonomous))   {
-		motor[ArmMotor] = 0 + armMotorSpeed * slowMode;  // Set Arm Motor to 0 + armMotorSpeed
+		if(!(autonomous) && lastarmMotorSpeed != armMotorSpeed)   {
+			motor[ArmMotor] = 0 + armMotorSpeed * slowMode;
 		}
-		wait1Msec(20);												// Wait 200 Milliseconds
+		wait1Msec(20);
 	}
 }

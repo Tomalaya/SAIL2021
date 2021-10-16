@@ -4,7 +4,7 @@ task plowMotorStart() {
 	int reversed = 1;
 	while(true) {
 		UPDATEBTN(Btn8U);
-  	if(!(autonomous))   {
+  		if(!(autonomous))   {
 			if(BTNPRESSED(Btn8U)) 	{
 				motor[PlowMotor] = 127 * reversed;
 				reversed *= -1;
