@@ -46,6 +46,7 @@ task main()  {																	// Main Task
 		if(BTNPRESSED(Btn8R)) {
 			reverse = -1 * reverse;
 		}
+
 		leftSpeed = (abs(GETBTN(Ch3)) > 10 ? (GETBTN(Ch3)*reverse):0) +
 								(abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4)/2:0);
 		rightSpeed = (abs(GETBTN(Ch3)) > 10 ? (GETBTN(Ch3)*reverse):0) -
