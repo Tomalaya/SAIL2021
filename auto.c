@@ -26,13 +26,20 @@ void pipefetch()	{
     go(80, 127, 90);
     autoStop(true);
 }
-void startlight()	{		//TODO
+void startlight()	{
 	int end = 0;
-    go(127, 127, 22);
-    go(-127, 127, 6);
-    go(80, 127, 90);
+    go(127, 127 ,10);
+    go(127, -127, 6);
+    go(127, 127, 18);
     autoStop(true);
 }
+/*void randomValues()		{
+	int end = 0;
+	go(9999999, 99999999999999, 99999999999999999999999);
+	go(1, 1, 1);
+	go(31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679, 31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679, 1);
+	go(9938, 57623678, 574856557556547647565);
+}*/
 task autoStart() {
 	USEBTN(Btn8L);
 	USEBTN(Btn8U);
@@ -50,7 +57,9 @@ task autoStart() {
             	pipefetch();
             }else if(BTNPRESSED(Btn8D))	{
             	startlight();
-            }
+            }/*else if(BTNPRESSED(Btn5D))	{
+				randomValues();
+            }*/
         }
     }
 }
