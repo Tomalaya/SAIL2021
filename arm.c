@@ -12,7 +12,7 @@ task armStart() {													// Start task armStart
 			armMotorSpeed = 0;									// Set armMotorSpeed to 0
 		}
 		if(!(autonomous))   {
-		motor[ArmMotor] = 0 + armMotorSpeed;  // Set Arm Motor to 0 + armMotorSpeed
+		motor[ArmMotor] = 0 + armMotorSpeed * slowMode;  // Set Arm Motor to 0 + armMotorSpeed
 		}
 		wait1Msec(20);												// Wait 200 Milliseconds
 	}

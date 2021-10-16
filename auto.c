@@ -37,7 +37,6 @@ task autoStart() {
 	USEBTN(Btn8L);
 	USEBTN(Btn8U);
 	USEBTN(Btn8D);
-	workoriswear = 0;
 	while(true) {
 		UPDATEBTN(Btn8L);
 		UPDATEBTN(Btn8D);
