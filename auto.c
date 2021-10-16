@@ -1,18 +1,39 @@
 
-bool autoStop() {
-        return
-        vexRT[Btn7D] ||
-        vexRT[Btn7L] ||
-        vexRT[Btn7R] ||
-        vexRT[Btn7U] ||
-        vexRT[Btn5D] ||
-        vexRT[Btn5U] ||
-        vexRT[Btn8R] ||
-        vexRT[Btn6U] ||
-        vexRT[Btn6D] ;
+bool autoStop(bool close) {
+        if(close || (vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn7U] || vexRT[Btn5D]
+         	|| vexRT[Btn5U] || vexRT[Btn8R] || vexRT[Btn6U] || vexRT[Btn6D]) &&
+         	(autonomous))	{
+        	motor[LeftWheel] = 0;
+        	motor[RightWheel] = 0;
+        	autonomous = false;
+        	return true;
+        }
+        return false;
 }
-bool Auto2 = false;
-task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
+#define go(ls, rs, t)				\
+	motor[LeftWheel] = ls;			\
+    motor[RightWheel] = rs;			\
+    for(end = 0; end<t; end++)	{	\
+    	if (autoStop(false)) {		\
+        	return;					\
+        }							\
+        wait1Msec(100);				\
+    }
+void pipefetch()	{
+	int end = 0;
+	go(127, 127, 22);
+    go(-127, 127, 6);
+    go(80, 127, 90);
+    autoStop(true);
+}
+void startlight()	{		//TODO
+	int end = 0;
+    go(127, 127, 22);
+    go(-127, 127, 6);
+    go(80, 127, 90);
+    autoStop(true);
+}
+task autoStart() {
 	USEBTN(Btn8L);
 	USEBTN(Btn8U);
 	USEBTN(Btn8D);
@@ -22,135 +43,15 @@ task autoStart() {					//GO FAST, THAN TURN LEFT							// Start task armStart
 		UPDATEBTN(Btn8D);
 		UPDATEBTN(Btn8U);
 
-		if(BTNPRESSED(Btn8L)) {
+		if (BTNPRESSED(Btn8L)) {
             autonomous = true;
+        }
+        if(autonomous)	{
             if(BTNPRESSED(Btn8U))   {
-                while(autonomous)   {
-                    workoriswear = 1;
-                	int end = 0;
-                    motor[LeftWheel] = 127;
-                    motor[RightWheel] = 127;
-                    while(autonomous && end++<22)   {
-                        if (autoStop()) {
-                            autonomous=false;
-                            motor[LeftWheel] = 0;
-                            motor[RightWheel] = 0;
-                            break;
-                        }
-                        wait1Msec(100);
-                        }
-                        end = 0;
-                        if (!autonomous){
-                            motor[LeftWheel] = 0;
-                            motor[RightWheel] = 0;
-                            break;
-                        }
-                        motor[LeftWheel] = -127;
-                        motor[RightWheel] = 127;
-                        while(autonomous && end++<6)   {
-                            if (autoStop()) {
-                                autonomous=false;
-                                motor[LeftWheel] = 0;
-                                motor[RightWheel] = 0;
-                                break;
-                            }
-                            wait1Msec(100);
-                        }
-                        motor[LeftWheel] = 0;
-                        motor[RightWheel] = 0;
-
-                        motor[PlowMotor] = 0;
-
-                        if (!autonomous){
-                            motor[LeftWheel] = 0;
-                            motor[RightWheel] = 0;
-                            motor[PlowMotor] = 0;
-                            break;
-                        }
-
-
-                        end = 0;
-
-                        motor[LeftWheel] = 80;
-                        motor[RightWheel] = 127;
-                        while(autonomous && end++<90)   {
-                            if (autoStop()) {
-                                autonomous=false;
-                                motor[LeftWheel] = 0;
-                                motor[RightWheel] = 0;
-                                break;
-                            }
-                            wait1Msec(100);
-                        }
-                        end = 0;
-                        motor[RightWheel] = 0;
-                        motor[LeftWheel] = 0;
-                        autonomous = false;
-                        wait1Msec(20);
-                    }
-                }
-            else if(BTNPRESSED(Btn8D))   {
-            	while(autonomous)   {
-    	int end2 = 0;
-    	motor[LeftWheel] = 127;
-    	motor[RightWheel] = 127;
-        while(autonomous && end2++<22)   {
-            if (autoStop()) {
-                autonomous=false;
-                motor[LeftWheel] = 0;
-                motor[RightWheel] = 0;
-                break;
+            	pipefetch();
+            }else if(BTNPRESSED(Btn8D))	{
+            	startlight();
             }
-            wait1Msec(100);
         }
-        end2 = 0;
-        if (!autonomous){
-            motor[LeftWheel] = 0;
-            motor[RightWheel] = 0;
-            break;
-        }
-        motor[LeftWheel] = 127;
-        motor[RightWheel] = -127;
-        while(autonomous && end2++<6)   {
-            if (autoStop()) {
-                autonomous=false;
-                motor[LeftWheel] = 0;
-                motor[RightWheel] = 0;
-                break;
-            }
-            wait1Msec(100);
-        }
-        motor[LeftWheel] = 0;
-        motor[RightWheel] = 0;
-
-
-        motor[PlowMotor] = 0;
-    	end2 = 0;
-
-        motor[LeftWheel] = 80;
-        motor[RightWheel] = 127;
-    	while(autonomous && end2++<90)   {
-            if (autoStop()) {
-                autonomous=false;
-            	motor[LeftWheel] = 0;
-                motor[RightWheel] = 0;
-            	break;
-            }
-            wait1Msec(100);
-    	}
-    	end2 = 0;
-        motor[RightWheel] = 0;
-        motor[LeftWheel] = 0;
-        autonomous = false;
-        Auto2 = false;
     }
-    wait1Msec(20);
-
-
-
-    }}
-        }
-
-
-
 }
