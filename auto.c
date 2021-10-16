@@ -10,15 +10,15 @@ bool autoStop(bool close) {
         }
         return false;
 }
-#define go(ls, rs, t)				\
-	motor[LeftWheel] = ls;			\
-    motor[RightWheel] = rs;			\
-    for(end = 0; end<t; end++)	{	\
-    	if (autoStop(false)) {		\
-        	return;					\
-        }							\
-        wait1Msec(100);				\
-    }
+#define go(ls, rs, t)						\
+	motor[LeftWheel] = ls;				\
+  motor[RightWheel] = rs;				\
+  for(end = 0; end<t; end++)	{	\
+  	if (autoStop(false)) {			\
+    	return;										\
+    }														\
+    wait1Msec(100);							\
+  }
 void pipefetch()	{
 	int end = 0;
 	go(127, 127, 22);
@@ -28,10 +28,12 @@ void pipefetch()	{
 }
 void startlight()	{		//TODO
 	int end = 0;
-    go(127, 127, 22);
-    go(-127, 127, 6);
-    go(80, 127, 90);
-    autoStop(true);
+	go(60, 60, 3); // Go Forward
+  go(127, 127, 8); // Go Forward
+  go(63, -63, 10); // Go Right
+  go(127, 127, 17);  // Go Forward
+  go(50, 50, 10);
+  autoStop(true);
 }
 task autoStart() {
 	USEBTN(Btn8L);
