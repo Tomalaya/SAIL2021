@@ -12,31 +12,39 @@ bool autoStop(bool close) {
 }
 #define go(ls, rs, t)						\
 	motor[LeftWheel] = ls;				\
-  motor[RightWheel] = rs;				\
-  for(end = 0; end<t; end++)	{	\
-  	if (autoStop(false)) {			\
-    	return;										\
-    }														\
+  	motor[RightWheel] = rs;				\
+  	for(end = 0; end<t; end++)	{	\
+  		if (autoStop(false)) {			\
+    		return;										\
+    	}														\
     wait1Msec(100);							\
   }
 void pipefetch()	{
 	int end = 0;
 	go(127, 127, 22); // Straight, 22 Iterations
-  go(-127, 127, 5); // Left, 6 Iterations
-  go(127, 127, 35);   // Half Speed, Straight, 22 Iterations
-  go(-127, -127, 5);
-  go(-127, 127, 12);    // Spin Around, 10 Iterations
-  autoStop(true);
+  	go(-127, 127, 5); // Left, 5 Iterations
+  	go(127, 127, 35);   // Half Speed, Straight, 35 Iterations
+  	go(-127, -127, 5);
+  	go(-127, 127, 12);    // Spin Around, 12 Iterations
+  	autoStop(true);
 }
 void startlight()	{
 	int end = 0;
 
 	go(60, 60, 3); // Go Forward
-  go(127, 127, 8); // Go Forward
-  go(63, -63, 10); // Go Right
-  go(127, 127, 17);  // Go Forward
-  go(50, 50, 10);
-  autoStop(true);
+  	go(127, 127, 8); // Go Forward
+  	go(63, -63, 10); // Go Right
+  	go(127, 127, 17);  // Go Forward
+  	go(50, 50, 10);
+  	autoStop(true);
+}
+void gotoauto()		{
+	int end = 0;
+	go();
+	go();
+	go();
+	go();
+	go();x
 }
 /*void randomValues()		{
 	for(int i = 0; i < rand; i++) {
