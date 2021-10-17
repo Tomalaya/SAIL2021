@@ -40,11 +40,12 @@ void startlight()	{
 }
 void gotoauto()		{
 	int end = 0;
-	go();
-	go();
-	go();
-	go();
-	go();x
+	go(-127, -127, 5);
+	go(127, 10, 5);
+	go(127, 127, 5);
+	go(10, 127, 5);
+	go(127, 127, 20);
+
 }
 /*void randomValues()		{
 	for(int i = 0; i < rand; i++) {
@@ -78,6 +79,8 @@ task autoStart() {
             	pipefetch();
             }else if(BTNPRESSED(Btn8D))	{
             	startlight();
+            }else if(BTNPRESSED(Btn8R))	{
+            	gotoauto();
             }/*else if(BTNPRESSED(Btn5D))	{
 				randomValues();
             }*/
