@@ -1,7 +1,7 @@
 
 bool autoStop(bool close) {
         if(close || (vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn7U] || vexRT[Btn5D]
-         	|| vexRT[Btn5U] || vexRT[Btn8R] || vexRT[Btn6U] || vexRT[Btn6D]) &&
+         	|| vexRT[Btn5U] || vexRT[Btn6U] || vexRT[Btn6D]) &&
          	(autonomous))	{
         	motor[LeftWheel] = 0;
         	motor[RightWheel] = 0;
@@ -66,10 +66,12 @@ task autoStart() {
 	USEBTN(Btn8L);
 	USEBTN(Btn8U);
 	USEBTN(Btn8D);
+	USEBTN(Btn8R);
 	while(true) {
 		UPDATEBTN(Btn8L);
 		UPDATEBTN(Btn8D);
 		UPDATEBTN(Btn8U);
+		UPDATEBTN(Btn8R);
 
 		if (BTNPRESSED(Btn8L)) {
             autonomous = true;
