@@ -1,7 +1,7 @@
 
 bool autoStop(bool close) {
         if(close || (vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn7U] || vexRT[Btn5D]
-         	|| vexRT[Btn5U] || vexRT[Btn8R] || vexRT[Btn6U] || vexRT[Btn6D]) &&
+         	|| vexRT[Btn5U] || vexRT[Btn6U] || vexRT[Btn6D]) &&
          	(autonomous))	{
         	motor[LeftWheel] = 0;
         	motor[RightWheel] = 0;
@@ -54,13 +54,13 @@ void gotoauto()		{
 }*/
 
 /* public static void main(String[] args) {
- *	System.out.println("Java is better than c, Tom!");
- *  try {
- * 		AnnoyTom.run();
- * 	} catch(NullPointerException n) {
- *		n.printStackTrace();
- *	}
- * }
+ 	System.out.println("Java is better than c, Tom!");
+    try {
+   		AnnoyTom.run();
+   	} catch(NullPointerException n) {
+  		n.printStackTrace();
+ 	}
+   }
  */
 task autoStart() {
 	USEBTN(Btn8L);
