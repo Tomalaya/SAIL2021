@@ -10,6 +10,8 @@
 
 bool autonomous = false;
 float slowMode = 1.0;
+int reverse = 1;
+
 #include <buttons.c>													// Include File buttons.c
 #include <arm.c>															// Include File arm.c
 #include <handServo.c>												// Include File handServo.c
@@ -21,7 +23,6 @@ float slowMode = 1.0;
 
 task main()  {																	// Main Task
 
-	int reverse = 1;
 	int leftSpeed = 0;													// Initialize integer leftSpeed
 	int rightSpeed = 0;													// Initialize integer rightSpeed
 	int lastRightSpeed = 0;													// Initialize integer left2Speed

@@ -21,10 +21,12 @@ bool autoStop(bool close) {
   }
 void pipefetch()	{
 	int end = 0;
-	go(127, 127, 22);
-    go(-127, 127, 6);
-    go(80, 127, 90);
-    autoStop(true);
+	go(127, 127, 22); // Straight, 22 Iterations
+  go(-127, 127, 5); // Left, 6 Iterations
+  go(127, 127, 35);   // Half Speed, Straight, 22 Iterations
+  go(-127, -127, 5);
+  go(-127, 127, 12);    // Spin Around, 10 Iterations
+  autoStop(true);
 }
 void startlight()	{
 	int end = 0;
@@ -37,12 +39,20 @@ void startlight()	{
   autoStop(true);
 }
 /*void randomValues()		{
-	int end = 0;
-	go(9999999, 99999999999999, 99999999999999999999999);
-	go(1, 1, 1);
-	go(31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679, 31415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679, 1);
-	go(9938, 57623678, 574856557556547647565);
+	for(int i = 0; i < rand; i++) {
+		go(rand, rand, rand);
+	}
 }*/
+
+/* public static void main(String[] args) {
+ *	System.out.println("Java is better than c, Tom!");
+ *  try {
+ * 		AnnoyTom.run();
+ * 	} catch(NullPointerException n) {
+ *		n.printStackTrace();
+ *	}
+ * }
+ */
 task autoStart() {
 	USEBTN(Btn8L);
 	USEBTN(Btn8U);
