@@ -1,4 +1,4 @@
-
+int iterationsNumber = 0;
 bool autoStop(bool close) {
         if(close || (vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn7U] || vexRT[Btn5D]
          	|| vexRT[Btn5U] || vexRT[Btn6U] || vexRT[Btn6D]) &&
@@ -21,30 +21,31 @@ bool autoStop(bool close) {
   }
 void pipefetch()	{
 	int end = 0;
-	go(127, 127, 22); // Straight, 22 Iterations
-  	go(-127, 127, 5); // Left, 5 Iterations
-  	go(127, 127, 35);   // Half Speed, Straight, 35 Iterations
+	go(127, 127, 24); // Straight, 22 Iterations
+  	go(-127, 127, 6); // Left, 5 Iterations
+  	go(127, 127, 38);   // Half Speed, Straight, 35 Iterations
   	go(-127, -127, 5);
   	go(-127, 127, 12);    // Spin Around, 12 Iterations
   	autoStop(true);
 }
 void startlight()	{
 	int end = 0;
-
+	int iterations[8] = {0, 5, 10, 15, 20, 25, 30, 35};
 	go(60, 60, 3); // Go Forward
   	go(127, 127, 8); // Go Forward
-  	go(63, -63, 10); // Go Right
+  	go(63, -63, 9); // Go Right
   	go(127, 127, 17);  // Go Forward
   	go(50, 50, 10);
   	autoStop(true);
 }
 void gotoauto()		{
 	int end = 0;
-	go(-127, -127, 5);
-	go(127, 10, 5);
+
+	go(-127, -127, 10);
+	go(127, 20, 10);
 	go(127, 127, 5);
-	go(10, 127, 5);
-	go(127, 127, 20);
+	go(10, 127, 10);
+	go(127, 127, 10);
 
 }
 /*void randomValues()		{
@@ -87,5 +88,7 @@ task autoStart() {
 				randomValues();
             }*/
         }
+        autoStop(false);
+        wait1Msec(20);
     }
 }
