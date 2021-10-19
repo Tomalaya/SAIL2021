@@ -32,9 +32,9 @@ void startlight()	{
 	int end = 0;
 	int iterations[8] = {0, 5, 10, 15, 20, 25, 30, 35};
 	go(60, 60, 3); // Go Forward
-  	go(127, 127, 8); // Go Forward
+  	go(127, 127, 7); // Go Forward
   	go(63, -63, 9); // Go Right
-  	go(127, 127, 17);  // Go Forward
+  	go(127, 127, 18);  // Go Forward
   	go(50, 50, 10);
   	autoStop(true);
 }
