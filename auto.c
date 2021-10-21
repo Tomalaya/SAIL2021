@@ -1,4 +1,3 @@
-int iterationsNumber = 0;
 bool autoStop(bool close) {
         if(close || (vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn7U] || vexRT[Btn5D]
          	|| vexRT[Btn5U] || vexRT[Btn6U] || vexRT[Btn6D]) &&
@@ -19,13 +18,23 @@ bool autoStop(bool close) {
     	}														\
     wait1Msec(100);							\
   }
+int thirdStep[] = {23, 6, 38, 5, 9, 5};
+
 void pipefetch()	{
 	int end = 0;
-	go(127, 127, 24); // Straight, 22 Iterations
+	go(100, 127, 23); // Straight, 22 Iterations
   	go(-127, 127, 6); // Left, 5 Iterations
   	go(127, 127, 38);   // Half Speed, Straight, 35 Iterations
   	go(-127, -127, 5);
-  	go(-127, 127, 12);    // Spin Around, 12 Iterations
+  	motor[ArmMotor] = -127;
+  	go(-127, 127, 9);    // Spin Around, 12 Iterations
+  	go(127, 127, 5);
+    handPosition = -127;
+  	WristPosition = -127;
+  	motor[ArmMotor] = 0;
+  	motor[HandServo] = handPosition;
+  	motor[WristServo] = WristPosition;
+  	slowMode = 0.5;
   	autoStop(true);
 }
 void startlight()	{
@@ -38,6 +47,7 @@ void startlight()	{
   	go(50, 50, 10);
   	autoStop(true);
 }
+
 void gotoauto()		{
 	int end = 0;
 
