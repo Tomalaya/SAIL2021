@@ -22,9 +22,9 @@ int thirdStep[] = {23, 6, 38, 5, 9, 5};
 
 void pipefetch()	{
 	int end = 0;
-	go(100, 127, 23); // Straight, 22 Iterations
+	go(100, 127, 20); // Straight, 22 Iterations
   	go(-127, 127, 6); // Left, 5 Iterations
-  	go(127, 127, 38);   // Half Speed, Straight, 35 Iterations
+  	go(127, 127, 32);   // Half Speed, Straight, 35 Iterations
   	go(-127, -127, 5);
   	motor[ArmMotor] = -127;
   	go(-127, 127, 9);    // Spin Around, 12 Iterations
