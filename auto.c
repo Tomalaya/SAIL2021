@@ -18,7 +18,6 @@ bool autoStop(bool close) {
         }                            \
     wait1Msec(100);                    \
   }
-<<<<<<< Updated upstream
 int thirdStep[] = {23, 6, 38, 5, 9, 5};
 
 void pipefetch()	{
@@ -37,18 +36,6 @@ void pipefetch()	{
   	motor[WristServo] = WristPosition;
   	slowMode = 0.5;
   	autoStop(true);
-=======
-
-
-void pipefetch()    {
-    int end = 0;
-    go(127, 127, 24); // Straight, 22 Iterations
-      go(-127, 127, 6); // Left, 5 Iterations
-      go(127, 127, 38);   // Half Speed, Straight, 35 Iterations
-      go(-127, -127, 5);
-      go(-127, 127, 12);    // Spin Around, 12 Iterations
-      autoStop(true);
->>>>>>> Stashed changes
 }
 
 int step1[] = {3, 9, 2, 14, 3, 3};
@@ -63,13 +50,6 @@ void startlight()    {        //45 to the left, foreward, left, foreward
     go(65, 65, step1[5]); 	// 5 Forward
       autoStop(true);
 }
-<<<<<<< Updated upstream
-
-void gotoauto()		{
-	int end = 0;
-=======
->>>>>>> Stashed changes
-
 int step2[] = {5, 3, 15, 6, 10};
 
 void gotoauto()        {  //back up, turn right, foreward, left, foreward
