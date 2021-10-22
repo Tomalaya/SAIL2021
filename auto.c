@@ -4,6 +4,7 @@ bool autoStop(bool close) {
              (autonomous))    {
             motor[LeftWheel] = 0;
             motor[RightWheel] = 0;
+            motor[ArmMotor] = 0;
             autonomous = false;
             return true;
         }
