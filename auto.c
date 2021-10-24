@@ -1,3 +1,5 @@
+bool bestAuto = false;
+
 bool autoStop(bool close) {
         if(close || (vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn7U] || vexRT[Btn5D]
              || vexRT[Btn5U] || vexRT[Btn6U] || vexRT[Btn6D]) &&
@@ -25,20 +27,37 @@ void pipefetch()	{
 	int end = 0;
 	// Comments are the iteration amounts for our course.
 	// New iteration numbers are for the Demo Day course.
-	go(100, 127, 18); // 20
-  	go(-127, 127, 7); // 6
-  	go(127, 127, 37);   // 32
-  	go(-127, -127, 5);
-  	motor[ArmMotor] = -127;
-  	go(-127, 127, 12);    // 9
-  	go(127, 127, 7);			// 5
-    handPosition = -127;
-  	WristPosition = -127;
-  	motor[ArmMotor] = 0;
-  	motor[HandServo] = handPosition;
-  	motor[WristServo] = WristPosition;
-  	slowMode = 0.5;
-  	autoStop(true);
+		if(bestAuto) {
+			go(100, 127, 18); // 20
+	  	go(-127, 127, 7); // 6
+	  	go(127, 127, 37);   // 32
+	  	go(-127, -127, 5);
+	  	motor[ArmMotor] = -127;
+	  	go(-127, 127, 12);    // 9
+	  	go(127, 127, 7);			// 5
+	    handPosition = -127;
+	  	WristPosition = -127;
+	  	motor[ArmMotor] = 0;
+	  	motor[HandServo] = handPosition;
+	  	motor[WristServo] = WristPosition;
+	  	slowMode = 0.5;
+	  	autoStop(true);
+  	} else {
+	  	go(100, 127, 20);
+	  	go(-127, 127, 6);
+	  	go(127, 127, 32);
+	  	go(-127, -127, 5);
+	  	motor[ArmMotor] = -127;
+	  	go(-127, 127, 9);
+	  	go(127, 127, 5);
+	    handPosition = -127;
+	  	WristPosition = -127;
+	  	motor[ArmMotor] = 0;
+	  	motor[HandServo] = handPosition;
+	  	motor[WristServo] = WristPosition;
+	  	slowMode = 0.5;
+	  	autoStop(true);
+  	}
 }
 
 int step1[] = {3, 9, 2, 14, 3, 3};
