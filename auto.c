@@ -1,4 +1,4 @@
-bool bestAuto = false;
+bool bestAuto = true;
 
 bool autoStop(bool close) {
         if(close || (vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn7U] || vexRT[Btn5D]
@@ -30,16 +30,16 @@ void pipefetch()	{
 		if(bestAuto) {
 			go(100, 127, 18); // 20
 	  	go(-127, 127, 7); // 6
-	  	go(127, 127, 37);   // 32
-	  	go(-127, -127, 5);
+	  	go(127, 127, 80);   // 32
+	  /*	go(-127, -127, 5);
 	  	motor[ArmMotor] = -127;
 	  	go(-127, 127, 12);    // 9
 	  	go(127, 127, 7);			// 5
 	    handPosition = -127;
-	  	WristPosition = -127;
+	  	WristPosition = -37;
 	  	motor[ArmMotor] = 0;
 	  	motor[HandServo] = handPosition;
-	  	motor[WristServo] = WristPosition;
+	  	motor[WristServo] = WristPosition;*/
 	  	slowMode = 0.5;
 	  	autoStop(true);
   	} else {
@@ -51,7 +51,7 @@ void pipefetch()	{
 	  	go(-127, 127, 9);
 	  	go(127, 127, 5);
 	    handPosition = -127;
-	  	WristPosition = -127;
+	  	WristPosition = -37;
 	  	motor[ArmMotor] = 0;
 	  	motor[HandServo] = handPosition;
 	  	motor[WristServo] = WristPosition;
