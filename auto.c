@@ -1,5 +1,4 @@
 bool bestAuto = true;
-
 bool autoStop(bool close) {
         if(close || (vexRT[Btn7D] || vexRT[Btn7L] || vexRT[Btn7R] || vexRT[Btn7U] || vexRT[Btn5D]
              || vexRT[Btn5U] || vexRT[Btn6U] || vexRT[Btn6D]) &&
@@ -64,25 +63,19 @@ int step1[] = {3, 9, 2, 14, 3, 3};
 
 void startlight()    {        //45 to the left, foreward, left, foreward
     int end = 0;
-    go(-65, 65, step1[0]);  // 3 Turn Left
-    go(127, 127, step1[1]); // 7 Forward
-    go(65, -65, step1[2]);	// 2 Right
-    go(127, 127, step1[3]);	// 15 Forward
-    go(-65, 65, step1[4]);	// 6 Left
-    go(65, 65, step1[5]); 	// 5 Forward
+    go(115, 75, 27);
       autoStop(true);
 }
 int step2[] = {5, 3, 15, 6, 10};
 
 void gotoauto()        {  //back up, turn right, foreward, left, foreward
     int end = 0;
-    go(-65, -65, step2[0]);
+  	go(-65, -65, step2[0]);
     go(-65, -65, step2[1]);
     go(127, 127, step2[2]);
     go(-127, 127, step2[3]);
     go(127, 127, step2[4]);
     autoStop(true);
-
 }
 /*void randomValues()        {
     for(int i = 0; i < rand; i++) {
