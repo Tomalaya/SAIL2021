@@ -37,23 +37,16 @@ task main()  {																	// Main Task
 	USEBTN(Btn8R);
 	USEBTN(Ch3);
 	USEBTN(Ch4);
-	USEBTN(Btn8D);
+
 	while(true) {															// Start a while loop
 		UPDATEBTN(Btn8R);
 		UPDATEBTN(Ch3);
 		UPDATEBTN(Ch4);
-		UPDATEBTN(Btn8D);
+
 		lastRightSpeed = rightSpeed ;
 		lastLeftSpeed = leftSpeed;
 		if(BTNPRESSED(Btn8R)) {
 			reverse = -1 * reverse;
-		}
-		if(BTNPRESSED(Btn8D)) {
-			if(slowMode == 0.5) {
-				slowMode = 1.0;
-			} else {
-				slowMode = 0.5;
-			}
 		}
 
 		leftSpeed = ((abs(GETBTN(Ch3)) > 10 ? (GETBTN(Ch3)*reverse):0) +
