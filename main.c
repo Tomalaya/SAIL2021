@@ -25,6 +25,9 @@ task main()  {																	// Main Task
 
 	int leftSpeed = 0;													// Initialize integer leftSpeed
 	int rightSpeed = 0;													// Initialize integer rightSpeed
+	int a2 = 0;
+	int b2 = 0;
+	int c2 = 0;
 	int lastRightSpeed = 0;													// Initialize integer left2Speed
 	int lastLeftSpeed = 0;												// Initialize integer right2Speed
 
@@ -48,11 +51,18 @@ task main()  {																	// Main Task
 		if(BTNPRESSED(Btn8R)) {
 			reverse = -1 * reverse;
 		}
-
-		leftSpeed = ((abs(GETBTN(Ch3)) > 10 ? (GETBTN(Ch3)*reverse):0) +
-								(abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4)/2:0)) * slowMode;
-		rightSpeed = ((abs(GETBTN(Ch3)) > 10 ? (GETBTN(Ch3)*reverse):0) -
-								 (abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4)/2:0)) * slowMode;
+		a2 = abs(GETBTN(Ch3)) > 6 ? (GETBTN(Ch3)) : 0;
+		a2 *= a2;
+		b2 = abs(GETBTN(Ch4)) > 6 ? (GETBTN(Ch4)) : 0;
+		b2 *= b2;
+		c2 = sqrt(a2 + b2);
+		if(c2 < 120) {
+				leftSpeed = reverse*(GETBTN(Ch3))/2 + GETBTN(Ch4)/4;
+				rightSpeed = reverse*(GETBTN(Ch3))/2 - GETBTN(Ch4)/4;
+			} else {
+				leftSpeed = reverse*(GETBTN(Ch3)) + GETBTN(Ch4)/2;
+				rightSpeed = reverse*(GETBTN(Ch3)) - GETBTN(Ch4)/2;
+		}
 		if(!(autonomous)) {
 			if(lastRightSpeed != rightSpeed){
 				motor[RightWheel]= rightSpeed;
