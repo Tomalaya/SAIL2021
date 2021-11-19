@@ -10,7 +10,7 @@
 
 bool autonomous = false;
 float slowMode = 1.0;
-int reverse = 1;
+int reverse = -1;
 
 #include <buttons.c>													// Include File buttons.c
 #include <arm.c>															// Include File arm.c
@@ -51,9 +51,9 @@ task main()  {																	// Main Task
 		if(BTNPRESSED(Btn8R)) {
 			reverse = -1 * reverse;
 		}
-		a2 = ((abs(GETBTN(Ch3)) > 6 ? (GETBTN(Ch3)) : 0;
+		a2 = (abs(GETBTN(Ch3))) > 6 ? (GETBTN(Ch3)) : 0;
 		a2 *= a2;
-		b2 = ((abs(GETBTN(Ch4)) > 6 ? (GETBTN(Ch4)) : 0;
+		b2 = (abs(GETBTN(Ch4))) > 6 ? (GETBTN(Ch4)) : 0;
 		b2 *= b2;
 		c2 = sqrt(a2 + b2);
 		if(c2 < 120) {
@@ -62,6 +62,7 @@ task main()  {																	// Main Task
 			} else {
 				leftSpeed = reverse*(GETBTN(Ch3)) + GETBTN(Ch4)/2;
 				rightSpeed = reverse*(GETBTN(Ch3)) - GETBTN(Ch4)/2;
+			}
 		/*
 		leftSpeed = ((abs(GETBTN(Ch3)) > 10 ? (GETBTN(Ch3)*reverse) : 0) +
 								(abs(GETBTN(Ch4)) > 10 ? GETBTN(Ch4)/2:0)) * slowMode;
@@ -71,11 +72,11 @@ task main()  {																	// Main Task
 		if(!(autonomous)) {
 			if(lastRightSpeed != rightSpeed){
 				motor[RightWheel]= rightSpeed;
-			}
+				}
 			if(lastLeftSpeed != leftSpeed){
 				motor[LeftWheel] = leftSpeed;
+				}
 			}
+			wait1Msec(20);														// Wait 20 Milliseconds
 		}
-		wait1Msec(20);														// Wait 20 Milliseconds
 	}
-}
