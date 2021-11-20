@@ -1,6 +1,6 @@
 int speed = 0;
 int k = 1;
-int WristPosition = 127;
+int WristPosition = -38;
 task wristServoStart() {						 			// Start wristServoStart task
 	USEBTN(Btn5U);
 	USEBTN(Btn5D);
