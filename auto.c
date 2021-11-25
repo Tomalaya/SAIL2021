@@ -15,13 +15,22 @@ bool autoStop(bool close) {
     }
 #define go(ls, rs, t)                \
     motor[LeftWheel] = ls;            \
-      motor[RightWheel] = rs;            \
-      for(end = 0; end<t; end++)    {    \
-          if (autoStop(false)) {        \
+    motor[RightWheel] = rs;            \
+    for(end = 0; end<t; end++)    {    \
+    	if (autoStop(false)) {        \
             return;                    \
         }                            \
     wait1Msec(100);                    \
-  }
+  	}
+#define run(as, t)                \
+    motor[ArmMotor] = as;            \
+    for(time = 0; time<t; time++)    {    \
+    	if (autoStop(false)) {        \
+        	return;                    \
+        }                            \
+    wait1Msec(100);                    \
+	}
+
 int thirdStep[] = {23, 6, 38, 5, 9, 5};
 
 void pipefetch()	{
@@ -35,9 +44,13 @@ void pipefetch()	{
 
 int step1[] = {3, 9, 2, 14, 3, 3};
 
-void startlight()    {        //45 to the left, foreward, left, foreward
+void startlaunch()    {
     int end = 0;
-    go(115, 75, 27);
+    int time = 0;
+    go(-80, -80, 6);
+    motor[LeftWheel] = 0;
+    motor[RightWheel] = 0;
+    run(-127, 14);
       autoStop(true);
 }
 int step2[] = {5, 3, 15, 6, 10};
@@ -89,7 +102,7 @@ task autoStart() {
             if(BTNPRESSED(Btn8U))   {
                 pipefetch();
             }else if(BTNPRESSED(Btn8D))    {
-                startlight();
+                startlaunch();
             //}else if(BTNPRESSED(Btn8R))    {
                // gotoauto();
             }/*else if(BTNPRESSED(Btn5D))    {
