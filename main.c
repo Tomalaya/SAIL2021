@@ -16,8 +16,8 @@ int reverse = -1;
 #include <arm.c>															// Include File arm.c
 #include <handServo.c>												// Include File handServo.c
 #include <wristServo.c>												// Include File wristServo.c
-#include <auto.c>															// Include File auto.c
 #include <lightpoleServo.c>
+#include <auto.c>															// Include File auto.c
 #include <plow.c>
 
 

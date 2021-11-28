@@ -48,6 +48,7 @@ void startlaunch()    {
     int end = 0;
     int time = 0;
     motor[LightpoleServo] = 67;
+    lightPolePosition = 67;
     go(-80, -80, 6);
     motor[LeftWheel] = 0;
     motor[RightWheel] = 0;
