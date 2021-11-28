@@ -47,10 +47,12 @@ int step1[] = {3, 9, 2, 14, 3, 3};
 void startlaunch()    {
     int end = 0;
     int time = 0;
+    motor[LightpoleServo] = 67;
     go(-80, -80, 6);
     motor[LeftWheel] = 0;
     motor[RightWheel] = 0;
     run(-127, 14);
+
       autoStop(true);
 }
 int step2[] = {5, 3, 15, 6, 10};
